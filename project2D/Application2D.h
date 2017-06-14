@@ -1,6 +1,6 @@
 #pragma once
 #include "Object.h"
-#include "Setting.h"
+
 
 class aieProject2D1App : public aie::Application {
 public:

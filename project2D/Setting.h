@@ -7,9 +7,9 @@ class Setting
 {
 public:
 
-	aieProject2D1App * app;
+	
 	Setting();
-
+	aieProject2D1App *app;
 	static Setting* getInstance();
 	~Setting();
 };

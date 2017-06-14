@@ -11,7 +11,7 @@ Setting * Setting::getInstance()
 {
 	static Setting setting;
 
-	return & setting;
+	return &setting;
 }
 
 Setting::~Setting()
