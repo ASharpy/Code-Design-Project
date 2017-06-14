@@ -67,22 +67,27 @@ void aieProject2D1App::update(float deltaTime) {
 		leftPaddle->posY = leftPaddle->tall / 2;
 		
 	}
+	
+	else if (leftPaddle->posY + leftPaddle->tall / 2 > SETAPP->app->getWindowHeight())
+	{
+		leftPaddle->posY = SETAPP->app->getWindowHeight() - leftPaddle->tall / 2;
+		//std::cout << leftPaddle->posY;
+
+	}
 
 	if (rightPaddle->posY - rightPaddle->tall / 2 <= 0)
 	{
 		rightPaddle->posY = rightPaddle->tall / 2;
 	}
 
-	if (leftPaddle->posY + leftPaddle->tall / 2 >= SETAPP->app->getWindowHeight())
+	else if (rightPaddle->posY - rightPaddle->tall / 2 < SETAPP->app->getWindowHeight())
 	{
-		leftPaddle->posY = ;
-
+		rightPaddle->posY = SETAPP->app->getWindowHeight() - rightPaddle->tall / 2;
 	}
 
-	if (rightPaddle->posY - rightPaddle->tall / 2 <= SETAPP->app->getWindowHeight())
-	{
-		rightPaddle->posY = SETAPP->app->getWindowHeight();
-	}
+	ball->posX += ball->Xvelocity * deltaTime;
+	ball->posY += ball->Yvelocity * deltaTime;
+
 }
 
 void aieProject2D1App::draw() {
