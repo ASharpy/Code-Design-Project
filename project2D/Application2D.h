@@ -19,6 +19,7 @@ public:
       no returns 
 	*/
 	virtual void update(float deltaTime);
+	bool checkCollision(int x, int y, int oWidth, int oHeight, int xTwo, int yTwo, int oTwoWidth, int oTwoHeight);
 	/*
 	draws all the tank and its parts to the screen 
 	no return

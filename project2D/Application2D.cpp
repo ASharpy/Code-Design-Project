@@ -22,7 +22,7 @@ bool aieProject2D1App::startup() {
 	m_2dRenderer = new aie::Renderer2D();
 	rightPaddle = new Object(m_2dRenderer,1240, 400, 20, 200, 0, 0);
 	leftPaddle = new Object(m_2dRenderer ,40, 400, 20, 200, 0, 0);
-	ball = new Object(m_2dRenderer,640, 360,20, 20, 100, 100);
+	ball = new Object(m_2dRenderer,640, 360,20, 20, 1 * 400, 1 * 400);
 	return true;
 }
 
@@ -34,6 +34,42 @@ void aieProject2D1App::shutdown() {
 	delete rightPaddle;
 	delete ball;
 }
+
+
+bool aieProject2D1App::checkCollision(int x, int y, int oWidth, int oHeight, int xTwo, int yTwo, int oTwoWidth, int oTwoHeight)
+{
+	/*x = ball->posX;
+	y = ball->posY;
+
+	oWidth = ball->wide;
+	oHeight = ball->tall;
+
+	xTwo = leftPaddle->posX;
+	yTwo = leftPaddle->posY;
+
+	oTwoWidth = leftPaddle->wide;
+	oTwoHeight = leftPaddle->tall;*/
+
+
+	int x1Min = x;
+	int x1Max = x + oWidth;
+	int y1Max = y + oHeight;
+	int y1Min = y;
+
+	// AABB 2
+	int x2Min = xTwo;
+	int x2Max = xTwo + oTwoWidth;
+	int y2Max = yTwo + oTwoHeight;
+	int y2Min = yTwo;
+
+	// Collision tests
+	if (x1Max < x2Min || x1Min > x2Max) return false;
+	if (y1Max < y2Min || y1Min > y2Max) return false;
+
+	return true;
+
+}
+
 
 void aieProject2D1App::update(float deltaTime) {
 
@@ -96,10 +132,26 @@ void aieProject2D1App::update(float deltaTime) {
 		 ball->Yvelocity = ball->Yvelocity * -1;
 	 }
 
-	ball->posX += ball->Xvelocity * -1 * deltaTime;
-	ball->posY += ball->Yvelocity *-1 * deltaTime;
+	 if (checkCollision(ball->posX , ball->posY, ball->wide, ball->tall, rightPaddle->posX, rightPaddle->posY, rightPaddle->wide, rightPaddle->tall))
+	 {
+		// ball->Xvelocity += 50;
+		 ball->Xvelocity = ball->Xvelocity * -1;
+
+	 }
+	 
+	 if (checkCollision(ball->posX, ball->posY, ball->wide, ball->tall, leftPaddle->posX, leftPaddle->posY, leftPaddle->wide, leftPaddle->tall))
+	 {
+		 //ball->Xvelocity ;
+		 ball->Xvelocity = ball->Xvelocity * -1;
+		 
+	 }
+
+	ball->posX += ball->Xvelocity * deltaTime;
+	ball->posY += ball->Yvelocity * deltaTime;
 
 }
+
+
 
 void aieProject2D1App::draw() {
 
