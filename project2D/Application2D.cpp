@@ -20,9 +20,9 @@ bool aieProject2D1App::startup() {
 	
 	//creating the tanks and its parts
 	m_2dRenderer = new aie::Renderer2D();
-	rightPaddle = new Object(m_2dRenderer,1200, 400, 20, 200, 0, 0);
+	rightPaddle = new Object(m_2dRenderer,1240, 400, 20, 200, 0, 0);
 	leftPaddle = new Object(m_2dRenderer ,40, 400, 20, 200, 0, 0);
-	ball = new Object(m_2dRenderer,640, 360, 40, 40, 30, 30);
+	ball = new Object(m_2dRenderer,640, 360,20, 20, 100, 100);
 	return true;
 }
 
@@ -62,31 +62,42 @@ void aieProject2D1App::update(float deltaTime) {
 		leftPaddle->posY -= 500 * deltaTime;
 	}
 
-	if (leftPaddle->posY - leftPaddle->tall/2 <= 0)
+	if (leftPaddle->posY - leftPaddle->tall/2 < 0)
 	{
 		leftPaddle->posY = leftPaddle->tall / 2;
 		
 	}
 	
-	else if (leftPaddle->posY + leftPaddle->tall / 2 > SETAPP->app->getWindowHeight())
+	 if (leftPaddle->posY + leftPaddle->tall / 2 > SETAPP->app->getWindowHeight())
 	{
 		leftPaddle->posY = SETAPP->app->getWindowHeight() - leftPaddle->tall / 2;
 		//std::cout << leftPaddle->posY;
 
 	}
 
-	if (rightPaddle->posY - rightPaddle->tall / 2 <= 0)
+	if (rightPaddle->posY - rightPaddle->tall / 2 < 0)
 	{
 		rightPaddle->posY = rightPaddle->tall / 2;
 	}
 
-	else if (rightPaddle->posY - rightPaddle->tall / 2 < SETAPP->app->getWindowHeight())
+	 if (rightPaddle->posY + rightPaddle->tall / 2 > SETAPP->app->getWindowHeight())
 	{
 		rightPaddle->posY = SETAPP->app->getWindowHeight() - rightPaddle->tall / 2;
 	}
 
-	ball->posX += ball->Xvelocity * deltaTime;
-	ball->posY += ball->Yvelocity * deltaTime;
+	 
+	 if (ball->posY + ball->tall / 2 > SETAPP->app->getWindowHeight())
+	 {
+		  ball->Yvelocity = ball->Yvelocity * -1;
+	 }
+
+	 if (ball->posY - ball->tall / 2 < 0)
+	 {
+		 ball->Yvelocity = ball->Yvelocity * -1;
+	 }
+
+	ball->posX += ball->Xvelocity * -1 * deltaTime;
+	ball->posY += ball->Yvelocity *-1 * deltaTime;
 
 }
 
