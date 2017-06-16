@@ -22,7 +22,7 @@ bool aieProject2D1App::startup() {
 	m_2dRenderer = new aie::Renderer2D();
 	rightPaddle = new Object(m_2dRenderer,1240, 400, 20, 200, 0, 0);
 	leftPaddle = new Object(m_2dRenderer ,40, 400, 20, 200, 0, 0);
-	ball = new Object(m_2dRenderer,640, 360,20, 20, 1 * 400, 1 * 400);
+	ball = new Object(m_2dRenderer,640, 360,20, 20, 200, 200);
 	return true;
 }
 
@@ -135,14 +135,14 @@ void aieProject2D1App::update(float deltaTime) {
 	 if (checkCollision(ball->posX , ball->posY, ball->wide, ball->tall, rightPaddle->posX, rightPaddle->posY, rightPaddle->wide, rightPaddle->tall))
 	 {
 		// ball->Xvelocity += 50;
-		 ball->Xvelocity = ball->Xvelocity * -1;
+		 ball->Xvelocity = ball->Xvelocity * -2;
 
 	 }
 	 
 	 if (checkCollision(ball->posX, ball->posY, ball->wide, ball->tall, leftPaddle->posX, leftPaddle->posY, leftPaddle->wide, leftPaddle->tall))
 	 {
 		 //ball->Xvelocity ;
-		 ball->Xvelocity = ball->Xvelocity * -1;
+		 ball->Xvelocity = ball->Xvelocity * -2;
 		 
 	 }
 
