@@ -6,6 +6,7 @@
 #include "Renderer2D.h"
 #include <iostream>
 #include "Setting.h"
+#include "Factory.h"
 aieProject2D1App::aieProject2D1App()
 {
 	SETAPP->app = this;
@@ -19,8 +20,8 @@ aieProject2D1App::~aieProject2D1App()
 bool aieProject2D1App::startup() {
 	//creating the tanks and its parts
 	m_2dRenderer = new aie::Renderer2D();
-	rightPaddle = new Object(m_2dRenderer,1240, 400, 20, 200, 0, 0);
-	leftPaddle = new Object(m_2dRenderer ,40, 400, 20, 200, 0, 0);
+	rightPaddle = FACTORY->MakeObject (m_2dRenderer, 1240, 400, 20, 200, 0, 0);
+	leftPaddle = FACTORY->MakeObject(m_2dRenderer ,40, 400, 20, 200, 0, 0);
 	ball = new Object(m_2dRenderer,SETAPP->app->getWindowWidth() /2, SETAPP->app->getWindowHeight()/2,20, 20, 200, 200);
 	return true;
 }
