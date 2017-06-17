@@ -23,6 +23,9 @@
     <ClCompile Include="Setting.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Factory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application2D.h">
@@ -32,6 +35,9 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="Setting.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Factory.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

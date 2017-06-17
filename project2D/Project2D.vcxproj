@@ -90,12 +90,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Application2D.cpp" />
+    <ClCompile Include="Factory.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="Setting.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application2D.h" />
+    <ClInclude Include="Factory.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="Setting.h" />
   </ItemGroup>
