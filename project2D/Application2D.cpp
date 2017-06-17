@@ -17,12 +17,11 @@ aieProject2D1App::~aieProject2D1App()
 }
 
 bool aieProject2D1App::startup() {
-	
 	//creating the tanks and its parts
 	m_2dRenderer = new aie::Renderer2D();
 	rightPaddle = new Object(m_2dRenderer,1240, 400, 20, 200, 0, 0);
 	leftPaddle = new Object(m_2dRenderer ,40, 400, 20, 200, 0, 0);
-	ball = new Object(m_2dRenderer,640, 360,20, 20, 200, 200);
+	ball = new Object(m_2dRenderer,SETAPP->app->getWindowWidth() /2, SETAPP->app->getWindowHeight()/2,20, 20, 200, 200);
 	return true;
 }
 
@@ -134,18 +133,22 @@ void aieProject2D1App::update(float deltaTime) {
 
 	 if (checkCollision(ball->posX , ball->posY, ball->wide, ball->tall, rightPaddle->posX, rightPaddle->posY, rightPaddle->wide, rightPaddle->tall))
 	 {
-		// ball->Xvelocity += 50;
-		 ball->Xvelocity = ball->Xvelocity * -2;
+		 ball->Xvelocity = ball->Xvelocity * -1.5;
 
 	 }
 	 
 	 if (checkCollision(ball->posX, ball->posY, ball->wide, ball->tall, leftPaddle->posX, leftPaddle->posY, leftPaddle->wide, leftPaddle->tall))
 	 {
-		 //ball->Xvelocity ;
-		 ball->Xvelocity = ball->Xvelocity * -2;
+		 ball->Xvelocity = ball->Xvelocity * -1.5;
 		 
 	 }
 
+	 if (ball->posX > SETAPP->app->getWindowWidth() ||ball->posX < 0 )
+	 {
+		 ball->posX = SETAPP->app->getWindowWidth()/2;
+		 ball->posY = SETAPP->app->getWindowHeight()/2;
+	 }
+	
 	ball->posX += ball->Xvelocity * deltaTime;
 	ball->posY += ball->Yvelocity * deltaTime;
 
