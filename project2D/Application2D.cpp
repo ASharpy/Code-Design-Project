@@ -22,7 +22,7 @@ bool aieProject2D1App::startup() {
 	m_2dRenderer = new aie::Renderer2D();
 	rightPaddle = FACTORY->MakeObject (m_2dRenderer, 1240, 400, 20, 200, 0, 0);
 	leftPaddle = FACTORY->MakeObject(m_2dRenderer ,40, 400, 20, 200, 0, 0);
-	ball = new Object(m_2dRenderer,SETAPP->app->getWindowWidth() /2, SETAPP->app->getWindowHeight()/2,20, 20, 200, 200);
+	ball = FACTORY->MakeObject(m_2dRenderer,SETAPP->app->getWindowWidth() /2, SETAPP->app->getWindowHeight()/2,20, 20, 200, 200);
 	return true;
 }
 
@@ -148,6 +148,8 @@ void aieProject2D1App::update(float deltaTime) {
 	 {
 		 ball->posX = SETAPP->app->getWindowWidth()/2;
 		 ball->posY = SETAPP->app->getWindowHeight()/2;
+		 ball->Yvelocity = 200;
+		 ball->Xvelocity = 200;
 	 }
 	
 	ball->posX += ball->Xvelocity * deltaTime;
