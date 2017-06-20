@@ -96,6 +96,8 @@
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="Paddle.cpp" />
     <ClCompile Include="Setting.cpp" />
+    <ClCompile Include="State.cpp" />
+    <ClCompile Include="StateManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application2D.h" />
@@ -104,6 +106,8 @@
     <ClInclude Include="Object.h" />
     <ClInclude Include="Paddle.h" />
     <ClInclude Include="Setting.h" />
+    <ClInclude Include="State.h" />
+    <ClInclude Include="StateManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
