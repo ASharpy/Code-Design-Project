@@ -20,9 +20,9 @@ aieProject2D1App::~aieProject2D1App()
 bool aieProject2D1App::startup() {
 	//creating the tanks and its parts
 	m_2dRenderer = new aie::Renderer2D();
-	rightPaddle = FACTORY->MakeObject (m_2dRenderer, 1240, 400, 20, 200, 0, 0);
-	leftPaddle = FACTORY->MakeObject(m_2dRenderer ,40, 400, 20, 200, 0, 0);
-	ball = FACTORY->MakeObject(m_2dRenderer,SETAPP->app->getWindowWidth() /2, SETAPP->app->getWindowHeight()/2,20, 20, 200, 200);
+	rightPaddle = FACTORY->MakePaddle(m_2dRenderer, 1240, 400);
+	leftPaddle = FACTORY->MakePaddle(m_2dRenderer ,40, 400);
+	ball = FACTORY->MakeBall(m_2dRenderer,SETAPP->app->getWindowWidth() /2, SETAPP->app->getWindowHeight()/2);
 	return true;
 }
 
@@ -63,8 +63,8 @@ bool aieProject2D1App::checkCollision(int x, int y, int oWidth, int oHeight, int
 	int y2Min = yTwo;
 
 	// Collision tests
-	if (x1Max < x2Min || x1Min > x2Max) return false;
-	if (y1Max < y2Min || y1Min > y2Max) return false;
+	if (x1Max< x2Min || x1Min > x2Max) return false;
+	if (y1Max< y2Min || y1Min > y2Max) return false;
 
 	return true;
 

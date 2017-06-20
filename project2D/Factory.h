@@ -1,5 +1,7 @@
 #pragma once
 #include "Object.h"
+#include "Ball.h"
+#include "Paddle.h"
 #define FACTORY Factory::getInstance()
 
 class Factory
@@ -7,7 +9,8 @@ class Factory
 public:
 	static Factory * getInstance();
 
-	Object* MakeObject(aie::Renderer2D* render, float PosX, float PosY, float width, float height, float xVelocity, float yVelocity);
+	Object* MakeBall(aie::Renderer2D* render, float PosX, float PosY);
+	Object* MakePaddle(aie::Renderer2D* render, float PosX, float PosY);
 	Factory();
 	
 	~Factory();

@@ -20,7 +20,12 @@ Factory * Factory::getInstance()
 	return &factory;
 }
 
-Object *Factory::MakeObject(aie::Renderer2D* render,float PosX, float PosY, float width, float height, float xVelocity, float yVelocity)
+Object *Factory::MakeBall(aie::Renderer2D* render,float PosX, float PosY)
 {
-		return new Object(render, PosX, PosY, width, height,xVelocity,yVelocity);
+		return new Ball(render, PosX, PosY);
+}
+
+Object * Factory::MakePaddle(aie::Renderer2D * render, float PosX, float PosY)
+{
+	return new Paddle(render, PosX, PosY);
 }

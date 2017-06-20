@@ -26,6 +26,12 @@
     <ClCompile Include="Factory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Ball.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Paddle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application2D.h">
@@ -38,6 +44,12 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="Factory.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Ball.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Paddle.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
