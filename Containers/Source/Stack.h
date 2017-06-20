@@ -9,11 +9,15 @@ public:
 	T topObj;
 	int top = -1;
 	
-	T myArray[10];
+	T* myArray;
 	//Stack()
 	//{ 
 	//}
 
+	stack()
+	{
+
+	}
 	~Stack() {};
 
 	void push(T value)
