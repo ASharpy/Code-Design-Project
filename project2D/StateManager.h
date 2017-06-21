@@ -3,6 +3,8 @@
 #include "List.h"
 #include "Renderer2D.h"
 
+
+class Apllication2D;
 class State;
 class StateManager
 {
@@ -17,15 +19,27 @@ public:
 	void popState();
 	StateManager();
 	~StateManager();
+	State * getTopState();
 
 private:
 
 	BinaryTree<int,State*> Registeredstates;
 	List<State*>activeStates;
 
-	enum class command
-	{
+	enum class commandTypes	{REGISTER,PUSH,POP};
 
+	struct commands
+	{
+		commandTypes command;
+		int id;
+		State* commandState;
 	};
+
+	List<commands> commandList;
+
+
+	void doCommands();
+	void doRegisterStates(int ID, State* state);
+	void doPopState();
 };
 

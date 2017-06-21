@@ -49,6 +49,7 @@ private:
 	ListNode * m_first;
 	ListNode * m_last;
 
+
 	//Number of elements in the list
 	float m_eleNum = 0;
 
@@ -155,6 +156,7 @@ public:
 	void popBack();
 	void deleteList();
 	void deletePosition(float position);
+	T& last();
 };
 
 template<class T>
@@ -353,6 +355,12 @@ inline void List<T>::deletePosition(float position)
 		m_eleNum--;
 
 	}
+}
+
+template<class T>
+inline T & List<T>::last()
+{
+	return last->obj;
 }
 
 
