@@ -20,7 +20,7 @@ public:
 	virtual void render() = 0;
 
 	State(Application2D *_app, StateManager * _SM) : app(_app), SM(_SM) {};
-	~State();
+	virtual ~State() = default;
 
 protected:
 

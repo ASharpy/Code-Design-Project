@@ -159,5 +159,11 @@ public:
 	{
 		DestroyTree(Root);
 	}
+
+	U &operator [] (T newKey)
+	{
+		return Search(Root, newKey);
+	}
+
 };
 

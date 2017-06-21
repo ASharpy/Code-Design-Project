@@ -2,6 +2,17 @@
 #include "State.h"
 
 
+
+StateManager::StateManager()
+{
+}
+
+
+StateManager::~StateManager()
+{
+}
+
+
 void StateManager::updateState(float deltaTime)
 {
 	doCommands();
@@ -40,20 +51,12 @@ void StateManager::pushState(int ID)
 
 void StateManager::popState()
 {
-}
-
-StateManager::StateManager()
-{
 	commands command;
 	command.id = -1;
 	command.command = commandTypes::POP;
 	command.commandState = nullptr;
 	commandList.pushBack(command);
-}
 
-
-StateManager::~StateManager()
-{
 }
 
 State * StateManager::getTopState()
@@ -68,12 +71,46 @@ State * StateManager::getTopState()
 
 void StateManager::doCommands()
 {
+	for (auto var: commandList)
+	{
+		commands & command = var;
+
+		switch (command.command)
+		{
+		case commandTypes::REGISTER: 
+			doRegisterStates(command.id, command.commandState); 
+			break;
+		case commandTypes::POP:
+			doPopState();
+			break;
+		case commandTypes::PUSH:
+			doPushState(command.id);
+			break;
+
+		default:
+			//put error handling here for trying to access a command type that doesnt exist
+
+		}
+	}
+
+	commandList.deleteList();
 }
 
 void StateManager::doRegisterStates(int ID, State * state)
 {
+	Registeredstates.insert(ID, state);
 }
 
 void StateManager::doPopState()
 {
+	//error handling if a list is being popped with 0 items (an assert for if link list getsize() is > 0)
+
+	activeStates.popBack();
 }
+
+void StateManager::doPushState(int ID)
+{
+	activeStates.pushBack(Registeredstates[ID]);
+
+}
+

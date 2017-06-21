@@ -2,7 +2,11 @@
 #include "State.h"
 #include <Renderer2D.h>
 
-namespace aie { class Font; }
+namespace aie 
+{ 
+	class Font; 
+	class Renderer2D;
+}
 
 class GameState : public State
 {
@@ -11,11 +15,9 @@ public:
 	virtual void update(float deltaTime);
 	virtual void render();
 
-	GameState();
+	GameState(Application2D *_app, StateManager * _SM);
 	virtual ~GameState();
 	
 private: 
-	aie::Font* font;
-	aie::Renderer2D * renderer;
 };
 

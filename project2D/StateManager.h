@@ -41,5 +41,6 @@ private:
 	void doCommands();
 	void doRegisterStates(int ID, State* state);
 	void doPopState();
+	void doPushState(int ID);
 };
 
