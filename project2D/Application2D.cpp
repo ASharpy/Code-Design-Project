@@ -51,16 +51,16 @@ bool aieProject2D1App::checkCollision(int x, int y, int oWidth, int oHeight, int
 	oTwoHeight = leftPaddle->tall;*/
 
 
-	int x1Min = x;
-	int x1Max = x + oWidth;
-	int y1Max = y + oHeight;
-	int y1Min = y;
+	int x1Min = x - oWidth /2;
+	int x1Max = x + oWidth/2;
+	int y1Max = y + oHeight/2;
+	int y1Min = y = oHeight/2;
 
 	// AABB 2
-	int x2Min = xTwo;
-	int x2Max = xTwo + oTwoWidth;
-	int y2Max = yTwo + oTwoHeight;
-	int y2Min = yTwo;
+	int x2Min = xTwo - oTwoWidth/2;
+	int x2Max = xTwo + oTwoWidth/2;
+	int y2Max = yTwo + oTwoHeight/2;
+	int y2Min = yTwo = oTwoHeight/2;
 
 	// Collision tests
 	if (x1Max< x2Min || x1Min > x2Max) return false;

@@ -1,6 +1,7 @@
 #pragma once
 #include "Object.h"
 #include "List.h"
+#include "StateManager.h"
 
 class aieProject2D1App : public aie::Application {
 public:
@@ -26,7 +27,10 @@ public:
 	*/
 	virtual void draw();
 
+	StateManager *getStateManager() { return gsm; };
+
 protected:
 
+	StateManager *gsm;
 	aie::Renderer2D* m_2dRenderer;
 };
