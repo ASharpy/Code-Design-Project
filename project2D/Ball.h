@@ -3,7 +3,9 @@
 class Ball : public Object
 {
 public:
+
 	Ball(float PosX, float PosY);
+
 	~Ball();
 };
 

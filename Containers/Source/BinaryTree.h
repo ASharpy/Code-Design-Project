@@ -160,9 +160,9 @@ public:
 		DestroyTree(Root);
 	}
 
-	U &operator [] (T newKey)
+	U operator [] (T newKey)
 	{
-		return Search(Root, newKey);
+		return SearchTree(newKey,Root);
 	}
 
 };

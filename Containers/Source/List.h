@@ -360,7 +360,7 @@ inline void List<T>::deletePosition(float position)
 template<class T>
 inline T & List<T>::last()
 {
-	return last->obj;
+	return m_last->obj;
 }
 
 

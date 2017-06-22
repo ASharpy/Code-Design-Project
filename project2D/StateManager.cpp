@@ -87,7 +87,7 @@ void StateManager::doCommands()
 			doPushState(command.id);
 			break;
 
-		default:
+		//default:
 			//put error handling here for trying to access a command type that doesnt exist
 
 		}
