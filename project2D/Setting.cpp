@@ -4,10 +4,9 @@
 
 Setting::Setting()
 {
-	m_2dRenderer = new aie::Renderer2D();
-	rightPaddle = FACTORY->MakePaddle(m_2dRenderer, 1240, 400);
-	leftPaddle = FACTORY->MakePaddle(m_2dRenderer, 40, 400);
-	ball = FACTORY->MakeBall(m_2dRenderer, SETAPP->app->getWindowWidth() / 2, SETAPP->app->getWindowHeight() / 2);
+	rightPaddle = FACTORY->MakePaddle(1240, 400);
+	leftPaddle = FACTORY->MakePaddle(40, 400);
+	ball = FACTORY->MakeBall(SETAPP->app->getWindowWidth() / 2, SETAPP->app->getWindowHeight() / 2);
 }
 
 
@@ -123,7 +122,6 @@ void Setting::render()
 
 Setting::~Setting()
 {
-	delete m_2dRenderer;
 	delete rightPaddle;
 	delete leftPaddle;
 }

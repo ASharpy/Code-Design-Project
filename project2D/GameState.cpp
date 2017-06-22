@@ -1,29 +1,26 @@
 #include "GameState.h"
 #include <Font.h>
+#include "Setting.h"
 
+GameState::GameState(Application2D * _app, StateManager * _SM) : State(_app, _SM)
+{
 
+}
 
 void GameState::update(float deltaTime)
 {
+	SETAPP->update(deltaTime, SM);
 }
 
 void GameState::render()
 {
-	renderer->begin();
-	renderer->drawText(font, "Game State", 30, 30);
-	renderer->end();
-
+	
+	SETAPP->render();
 }
 
-GameState::GameState()
-{
-	font = new aie::Font("./font/consolas,ttf", 32);
-	renderer = new aie::Renderer2D();
-}
 
 
 GameState::~GameState()
 {
-	delete font;
-	delete renderer;
+	
 }

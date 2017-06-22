@@ -1,6 +1,7 @@
 #pragma once
 #include "Application.h"
 #include "Renderer2D.h"
+#include "Setting.h"
 
 enum class ObjectTypes{Paddle};
 
@@ -27,9 +28,5 @@ public:
     virtual void Update(float DT);
 
 	virtual ~Object();
-
-protected:
-
-	aie::Renderer2D*	m_2dRenderer;
 
 };

@@ -2,7 +2,7 @@
 
 
 
-Ball::Ball(aie::Renderer2D* render , float PosX , float PosY)
+Ball::Ball(float PosX , float PosY)
 {
 	posX = PosX;
 	posY = PosY;
@@ -10,7 +10,6 @@ Ball::Ball(aie::Renderer2D* render , float PosX , float PosY)
 	tall = 20;
 	Yvelocity = 200;
 	Xvelocity = 200;
-	m_2dRenderer = render;
 }
 
 

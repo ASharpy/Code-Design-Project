@@ -5,7 +5,7 @@ class Paddle : public Object
 {
 public:
 	
-	Paddle(aie::Renderer2D* render, float PosX, float PosY);
+	Paddle(float PosX, float PosY);
 	~Paddle();
 };
 

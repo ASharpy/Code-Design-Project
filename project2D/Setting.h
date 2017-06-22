@@ -28,6 +28,5 @@ private:
 	Object * leftPaddle;
 	Object* rightPaddle;
 	Object* ball;
-	aie::Renderer2D* m_2dRenderer;
 };
 

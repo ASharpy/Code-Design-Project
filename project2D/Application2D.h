@@ -23,10 +23,11 @@ public:
 	*/
 	virtual void draw();
 
-	StateManager *getStateManager() { return gsm; };
+	StateManager *getStateManager() { return SM; };
+	aie::Renderer2D *Renderer;
 	
 protected:
 
-	StateManager *gsm;
-
+	StateManager *SM;
+	
 };

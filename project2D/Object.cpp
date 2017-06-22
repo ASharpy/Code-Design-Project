@@ -20,5 +20,5 @@ Object::~Object()
 
 void Object::Draw()
 {
-	m_2dRenderer->drawBox(posX, posY, wide, tall);
+	SETAPP->app->Renderer->drawBox(posX, posY, wide, tall);
 }

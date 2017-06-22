@@ -9,8 +9,8 @@ class Factory
 public:
 	static Factory * getInstance();
 
-	Object* MakeBall(aie::Renderer2D* render, float PosX, float PosY);
-	Object* MakePaddle(aie::Renderer2D* render, float PosX, float PosY);
+	Object* MakeBall(float PosX, float PosY);
+	Object* MakePaddle(float PosX, float PosY);
 	Factory();
 	
 	~Factory();
