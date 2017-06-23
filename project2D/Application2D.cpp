@@ -1,10 +1,13 @@
 #include "Application2D.h"
+#include "Texture.h"
+#include "Font.h"
 #include "Input.h"
-#include "Application.h"
-#include <iostream>
-#include "Setting.h"
+#include "GameStateTypes.h"
 #include "GameState.h"
 #include "LoadState.h"
+#include "MenuState.h"
+#include "PauseState.h"
+#include "Setting.h"
 
 using namespace StateManagement;
 aieProject2D1App::aieProject2D1App()
@@ -23,7 +26,7 @@ bool aieProject2D1App::startup() {
 	Renderer = new aie::Renderer2D();
 	SM = new StateManager();
 	
-	SM->registerState(LOADING, new LoadState(this, SM));
+	//SM->registerState(LOADING, new LoadState(this, SM));
 
 	SM->pushState(LOADING);
 	return true;

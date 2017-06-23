@@ -1,5 +1,7 @@
 #include "Object.h"
-#include <iostream>
+#include "Setting.h"
+#include "Application2D.h"
+
 
 
 Object::Object()

@@ -1,9 +1,7 @@
 #pragma once
 #include "Application.h"
 #include "Renderer2D.h"
-#include "Setting.h"
 
-enum class ObjectTypes{Paddle};
 
 class Object
 {

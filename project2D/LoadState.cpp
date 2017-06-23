@@ -5,6 +5,7 @@
 #include "GameStateTypes.h"
 #include "Setting.h"
 
+
 using namespace StateManagement;
 
 LoadState::LoadState(Application2D *_app, StateManager *_SM) : State(_app, _SM)

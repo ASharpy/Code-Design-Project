@@ -1,7 +1,9 @@
 #pragma once
-#include "Object.h"
-#include "List.h"
+#include <Application.h>
+#include "Renderer2D.h"
+#include "Player.h"
 #include "StateManager.h"
+
 
 class aieProject2D1App : public aie::Application {
 public:
@@ -10,8 +12,8 @@ public:
 	aieProject2D1App();
 	virtual ~aieProject2D1App();
 
-	virtual bool startup();
-	virtual void shutdown();
+	 bool startup();
+	 void shutdown();
 
 	/*Updates the tanks local and global matricies 
       no returns 

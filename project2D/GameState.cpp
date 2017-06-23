@@ -1,5 +1,8 @@
 #include "GameState.h"
-#include <Font.h>
+
+#include "Application2D.h"
+#include <string>
+#include "GameStateTypes.h"
 #include "Setting.h"
 
 GameState::GameState(Application2D * _app, StateManager * _SM) : State(_app, _SM)

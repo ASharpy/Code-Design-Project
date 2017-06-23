@@ -1,6 +1,9 @@
 #pragma once
 #include "State.h"
-#include <Renderer2D.h>
+
+#include <Font.h>
+#include "Object.h"
+#include <Input.h>
 
 namespace aie 
 { 

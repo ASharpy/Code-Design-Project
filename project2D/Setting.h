@@ -1,10 +1,8 @@
 #pragma once
-#include "Application2D.h"
-#include "Factory.h"
-#include "GameStateTypes.h"
-#include <Renderer2D.h>
-#include <Input.h>
+#include "GameState.h"
 
+
+class aieProject2D1App;
 #define SETAPP Setting::getInstance()
 
 class Setting
@@ -25,7 +23,7 @@ private:
 	bool checkCollision(int x, int y, int oWidth, int oHeight, int xTwo, int yTwo, int oTwoWidth, int oTwoHeight);
 
 
-	Object * leftPaddle;
+	Object* leftPaddle;
 	Object* rightPaddle;
 	Object* ball;
 };

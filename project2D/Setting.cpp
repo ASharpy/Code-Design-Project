@@ -1,6 +1,9 @@
 #include "Setting.h"
-
-
+#include "Application2D.h"
+#include "StateManager.h"
+#include "GameStateTypes.h"
+#include <string>
+#include "Factory.h"
 
 Setting::Setting()
 {
