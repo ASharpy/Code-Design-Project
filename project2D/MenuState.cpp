@@ -18,12 +18,9 @@ MenuState::MenuState(Application2D * _app, StateManager * _SM) : State(_app, _SM
 
 void MenuState::update(float dt)
 {
-	
-	std::cout << WhatsSelected << std::endl;
 
 		if (app->input->isKeyDown(aie::INPUT_KEY_DOWN))
 		{
-			std::cout << "key down" << std::endl;
 			WhatsSelected = 0;
 		}
 
@@ -39,7 +36,7 @@ void MenuState::update(float dt)
 			if (WhatsSelected == 1)
 			{
 				SM->popState();
-				SM->pushState(GAME);
+				SM->pushState(LOADING);
 			};
 			if (WhatsSelected == 0)
 			{

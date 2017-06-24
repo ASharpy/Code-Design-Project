@@ -4,6 +4,7 @@
 #include "Application2D.h"
 #include "GameStateTypes.h"
 #include "Setting.h"
+#include "SplashState.h"
 
 
 using namespace StateManagement;
@@ -70,11 +71,11 @@ void LoadState::updateStateTimer(float deltaTime)
 	
 	switchStateTimer += deltaTime;
 	//change back to 5
-	if (switchStateTimer < 5)
+	if (switchStateTimer < 3)
 	{
 		return;
 	}
 
 	app->getStateManager()->popState();
-	app->getStateManager()->pushState(MENU);
+	app->getStateManager()->pushState(GAME);
 }
