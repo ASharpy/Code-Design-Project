@@ -11,11 +11,9 @@ public:
 
 private:
 
+	aie::Font * actionfont;
 	char * splashText;
-	const float delayTime = 0.3f;
-	void updatesplashText(float deltaTime);
-	void updateStateTimer(float deltaTime);
-	float switchStateTimer;
+	char * actionText;
 };
 
 
