@@ -21,7 +21,7 @@ Factory::~Factory()
 
 Object *Factory::MakeBall(float PosX, float PosY)
 {
-		return new Ball(PosX, PosY);
+	return new Ball(PosX, PosY);
 }
 
 Object * Factory::MakePaddle(float PosX, float PosY)

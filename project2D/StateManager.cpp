@@ -18,7 +18,7 @@ void StateManager::updateState(float deltaTime)
 {
 	doCommands();
 
-	for (auto &var: activeStates )
+	for (auto &var : activeStates)
 	{
 		var->update(deltaTime);
 	}
@@ -72,14 +72,14 @@ State * StateManager::getTopState()
 
 void StateManager::doCommands()
 {
-	for (auto var: commandList)
+	for (auto var : commandList)
 	{
 		commands & command = var;
 
 		switch (command.command)
 		{
-		case commandTypes::REGISTER: 
-			doRegisterStates(command.id, command.commandState); 
+		case commandTypes::REGISTER:
+			doRegisterStates(command.id, command.commandState);
 			break;
 		case commandTypes::POP:
 			doPopState();
@@ -88,7 +88,7 @@ void StateManager::doCommands()
 			doPushState(command.id);
 			break;
 
-		//default:
+			//default:
 			//put error handling here for trying to access a command type that doesnt exist
 
 		}

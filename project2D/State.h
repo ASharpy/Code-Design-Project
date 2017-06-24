@@ -4,10 +4,10 @@
 class Application2D;
 class StateManager;
 
-namespace aie 
-{ 
-	class Renderer2D; 
-	class Font; 
+namespace aie
+{
+	class Renderer2D;
+	class Font;
 }
 
 class State

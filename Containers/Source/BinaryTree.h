@@ -1,6 +1,6 @@
 #pragma once
 
-template<class T,class U>
+template<class T, class U>
 class BinaryTree
 {
 
@@ -10,7 +10,7 @@ private:
 	class TreeNode
 	{
 	public:
-		
+
 
 		T key;
 		U value;
@@ -33,7 +33,7 @@ private:
 		~TreeNode() { value = 0; key = 0; };
 
 	};
-	
+
 	//Private Functions 
 	int leafNum = 0;
 	TreeNode * Root;
@@ -90,7 +90,7 @@ private:
 			}
 			else if (keyNum < leaf->key)
 			{
-				return SearchTree(keyNum , leaf->left);
+				return SearchTree(keyNum, leaf->left);
 			}
 			else
 			{
@@ -105,7 +105,7 @@ private:
 		}
 
 	}
-	
+
 	void DestroyTree(TreeNode *leaf)
 	{
 		if (leaf != nullptr)
@@ -131,9 +131,9 @@ public:
 	{
 		Root = nullptr;
 	}
-	
+
 	void insert(T KeyNum, U valueNum)
-	
+
 	{
 		if (Root != nullptr)
 		{
@@ -162,7 +162,7 @@ public:
 
 	U operator [] (T newKey)
 	{
-		return SearchTree(newKey,Root);
+		return SearchTree(newKey, Root);
 	}
 
 };

@@ -4,7 +4,7 @@
 class LoadState : public State
 {
 public:
-	LoadState(Application2D *_app,StateManager * SM);
+	LoadState(Application2D *_app, StateManager * SM);
 	virtual ~LoadState();
 
 	virtual void update(float deltaTime);

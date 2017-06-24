@@ -12,7 +12,7 @@ public:
 	static Object* MakeBall(float PosX, float PosY);
 	static Object* MakePaddle(float PosX, float PosY);
 	Factory();
-	
+
 	~Factory();
 };
 

@@ -18,12 +18,12 @@ public:
 	float Yvelocity;
 
 	float Xvelocity;
-	
+
 	Object();
 
 	virtual void Draw();
 
-    virtual void Update(float DT);
+	virtual void Update(float DT);
 
 	virtual ~Object();
 

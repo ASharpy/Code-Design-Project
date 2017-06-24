@@ -6,7 +6,6 @@
 #include "GameState.h"
 #include "LoadState.h"
 #include "MenuState.h"
-#include "PauseState.h"
 #include "Setting.h"
 
 using namespace StateManagement;
@@ -15,7 +14,7 @@ Application2D::Application2D()
 	
 }
 
-Application2D::~Application2D() 
+Application2D::~Application2D()
 {
 
 }
@@ -25,15 +24,15 @@ bool Application2D::startup() {
 	SETAPP->app = this;
 	Renderer = new aie::Renderer2D();
 	SM = new StateManager();
-	
-	SM->registerState(GAME, new LoadState(this, SM));
-	//SM->registerState(LOADING, new LoadState(this, SM));
-	SM->registerState(MENU, new MenuState(this,SM));
-	SM->pushState(MENU);
+	input = aie::Input::getInstance();
+	SM->registerState(GAME, new GameState(this, SM));
+	SM->registerState(LOADING, new LoadState(this, SM));
+	SM->registerState(MENU, new MenuState(this, SM));
+	SM->pushState(LOADING);
 	return true;
 }
 
-void Application2D::shutdown() 
+void Application2D::shutdown()
 {
 	delete SM;
 
@@ -57,10 +56,11 @@ void Application2D::draw() {
 	Renderer->begin();
 
 	SM->RenderState();
-	
+
+
 	Renderer->end();
 	// begin drawing sprites
-	
+
 	// done drawing sprites
 
 }

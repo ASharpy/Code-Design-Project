@@ -28,6 +28,5 @@ private:
 	int WhatsSelected;
 
 	int maxMenuOption;
-	aie::Input *input;
 };
 

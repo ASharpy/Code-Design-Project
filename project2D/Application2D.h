@@ -15,21 +15,21 @@ public:
 	virtual bool startup();
 	virtual void shutdown();
 
-	/*Updates the tanks local and global matricies 
-      no returns 
+	/*Updates the tanks local and global matricies
+	no returns
 	*/
 	virtual void update(float deltaTime);
 	/*
-	draws all the tank and its parts to the screen 
+	draws all the tank and its parts to the screen
 	no return
 	*/
 	virtual void draw();
-
+	aie::Input* input;
 	StateManager *getStateManager() { return SM; };
 	aie::Renderer2D *Renderer;
-	
+
 protected:
 
 	StateManager *SM;
-	
+
 };

@@ -5,9 +5,9 @@
 #include "Object.h"
 #include <Input.h>
 
-namespace aie 
-{ 
-	class Font; 
+namespace aie
+{
+	class Font;
 	class Renderer2D;
 }
 
@@ -20,7 +20,7 @@ public:
 
 	GameState(Application2D *_app, StateManager * _SM);
 	virtual ~GameState();
-	
-private: 
+
+private:
 };
 

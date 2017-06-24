@@ -10,7 +10,7 @@ class StateManager
 {
 public:
 
-	
+
 	void updateState(float deltaTime);
 	void RenderState();
 
@@ -23,10 +23,10 @@ public:
 
 private:
 
-	BinaryTree<int,State*> Registeredstates;
+	BinaryTree<int, State*> Registeredstates;
 	List<State*>activeStates;
 
-	enum class commandTypes	{REGISTER,PUSH,POP};
+	enum class commandTypes { REGISTER, PUSH, POP };
 
 	struct commands
 	{

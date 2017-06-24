@@ -83,7 +83,7 @@ void Application::run(const char* title, int width, int height, bool fullscreen)
 		double fpsInterval = 0;
 
 		// loop while game is running
-		while (m_gameOver) {
+		while (!m_gameOver) {
 
 			// update delta time
 			currTime = glfwGetTime();
@@ -123,9 +123,7 @@ void Application::run(const char* title, int width, int height, bool fullscreen)
 			glfwSwapBuffers(m_window);
 
 			// should the game exit?
-
 			m_gameOver = m_gameOver || glfwWindowShouldClose(m_window) == GLFW_TRUE;
-			//m_gameOver = false;
 		}
 	}
 

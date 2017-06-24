@@ -2,7 +2,7 @@
 
 
 
-Ball::Ball(float PosX , float PosY)
+Ball::Ball(float PosX, float PosY)
 {
 	posX = PosX;
 	posY = PosY;

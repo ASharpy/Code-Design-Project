@@ -4,7 +4,7 @@
 class Paddle : public Object
 {
 public:
-	
+
 	Paddle(float PosX, float PosY);
 	~Paddle();
 };

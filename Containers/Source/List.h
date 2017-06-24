@@ -29,7 +29,7 @@ private:
 			Previous = nullptr;
 			obj = newobj;
 		}
-		
+
 		~ListNode()
 		{
 		}
@@ -73,7 +73,7 @@ public:
 
 		/*
 		++ operator overloader for going to the next object in the list (ptr++)
-		no returns 
+		no returns
 		*/
 		void operator++(int) { ptr = ptr->Next; };
 
@@ -95,7 +95,7 @@ public:
 		no returns
 		*/
 		void operator--(int) { ptr = ptr->Previous; };
-		
+
 		/*
 		+= operator overloader for going to the previous object in the list (--ptr)
 		no returns
@@ -107,7 +107,7 @@ public:
 				ptr = ptr->Next;
 			}
 		};
-		
+
 		bool operator!=(const Iterator & other) { return ptr != other.ptr; };
 
 		bool operator==(const Iterator & other) { return ptr == other.ptr; };
@@ -126,12 +126,12 @@ public:
 		}
 
 
-		T &operator*() {return ptr->obj; };
-	
+		T &operator*() { return ptr->obj; };
+
 	};
 
-	Iterator end() 
-	{ 
+	Iterator end()
+	{
 		Iterator temp;
 		temp.ptr = nullptr;
 		return temp;
@@ -151,7 +151,7 @@ public:
 
 	void pushFront(const T  value);
 	void pushBack(const T  value);
-	void insert(int element , const T & value);
+	void insert(int element, const T & value);
 	void popFront();
 	void popBack();
 	void deleteList();
@@ -162,7 +162,7 @@ public:
 template<class T>
 inline void List<T>::pushFront(const T value)
 {
-	
+
 	if (m_eleNum == 0)
 	{
 		m_first = new ListNode(value);
@@ -179,7 +179,7 @@ inline void List<T>::pushFront(const T value)
 		m_first->Previous = N;
 
 		m_first = N;
-    	
+
 		m_first->obj = value;
 	}
 	m_eleNum++;
@@ -222,18 +222,18 @@ inline void List<T>::popFront()
 	}
 	else
 	{
-	
+
 		ListNode * holder = m_first->Next;
-	
+
 		delete m_first;
 
 		holder->Previous = nullptr;
-		
+
 		m_first = holder;
-		
+
 		m_eleNum--;
 	}
-	
+
 }
 
 template<class T>
@@ -296,7 +296,7 @@ inline void List<T>::insert(int element, const T & value)
 
 		m_eleNum++;
 	}
-	
+
 }
 
 template<class T>
@@ -362,6 +362,5 @@ inline T & List<T>::last()
 {
 	return m_last->obj;
 }
-
 
 

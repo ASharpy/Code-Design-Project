@@ -9,7 +9,8 @@ Setting::Setting()
 {
 	rightPaddle = Factory::MakePaddle(1240, 400);
 	leftPaddle = Factory::MakePaddle(40, 400);
-	ball = Factory::MakeBall(640 / 2,360 / 2);
+	ball = Factory::MakeBall(640 / 2, 360 / 2);
+
 }
 
 
@@ -22,25 +23,26 @@ Setting * Setting::getInstance()
 
 void Setting::update(float deltaTime, StateManager * SM)
 {
-	aie::Input* input = aie::Input::getInstance();
+	
 
-	if (input->isKeyDown(aie::INPUT_KEY_UP))
+
+	if (app->input->isKeyDown(aie::INPUT_KEY_UP))
 	{
 		rightPaddle->posY += 500 * deltaTime;
 	}
 
-	if (input->isKeyDown(aie::INPUT_KEY_DOWN))
+	if (app->input->isKeyDown(aie::INPUT_KEY_DOWN))
 	{
 		rightPaddle->posY -= 500 * deltaTime;
 
 	}
 
-	if (input->isKeyDown(aie::INPUT_KEY_W))
+	if (app->input->isKeyDown(aie::INPUT_KEY_W))
 	{
 		leftPaddle->posY += 500 * deltaTime;
 	}
 
-	if (input->isKeyDown(aie::INPUT_KEY_S))
+	if (app->input->isKeyDown(aie::INPUT_KEY_S))
 	{
 		leftPaddle->posY -= 500 * deltaTime;
 	}

@@ -17,7 +17,7 @@ void GameState::update(float deltaTime)
 
 void GameState::render()
 {
-	
+
 	SETAPP->render();
 }
 
@@ -25,5 +25,5 @@ void GameState::render()
 
 GameState::~GameState()
 {
-	
+
 }
