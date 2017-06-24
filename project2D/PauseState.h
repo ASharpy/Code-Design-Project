@@ -7,5 +7,8 @@ public:
 	virtual void render();
 	PauseState(Application2D *_app, StateManager *_SM);
 	virtual ~PauseState();
+
+private:
+	char * pauseText;
 };
 
