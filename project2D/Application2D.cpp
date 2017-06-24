@@ -10,29 +10,29 @@
 #include "Setting.h"
 
 using namespace StateManagement;
-aieProject2D1App::aieProject2D1App()
+Application2D::Application2D()
 {
 	
 }
 
-aieProject2D1App::~aieProject2D1App() 
+Application2D::~Application2D() 
 {
 
 }
 
-bool aieProject2D1App::startup() {
+bool Application2D::startup() {
 	//creating the tanks and its parts
 	SETAPP->app = this;
 	Renderer = new aie::Renderer2D();
 	SM = new StateManager();
 	
-	//SM->registerState(LOADING, new LoadState(this, SM));
+	SM->registerState(GAME, new LoadState(this, SM));
 
-	SM->pushState(LOADING);
+	SM->pushState(GAME);
 	return true;
 }
 
-void aieProject2D1App::shutdown() 
+void Application2D::shutdown() 
 {
 	delete SM;
 
@@ -41,21 +41,21 @@ void aieProject2D1App::shutdown()
 
 
 
-void aieProject2D1App::update(float deltaTime) {
+void Application2D::update(float deltaTime) {
 
 	SM->updateState(deltaTime);
 }
 
 
 
-void aieProject2D1App::draw() {
+void Application2D::draw() {
 
 	// wipe the screen to the background colour
 	clearScreen();
 
 	Renderer->begin();
 
-	SM->RenderState();
+	SETAPP->app->draw();
 
 	Renderer->end();
 	// begin drawing sprites

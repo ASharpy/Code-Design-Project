@@ -7,9 +7,9 @@
 
 Setting::Setting()
 {
-	rightPaddle = FACTORY->MakePaddle(1240, 400);
-	leftPaddle = FACTORY->MakePaddle(40, 400);
-	ball = FACTORY->MakeBall(SETAPP->app->getWindowWidth() / 2, SETAPP->app->getWindowHeight() / 2);
+	rightPaddle = Factory::MakePaddle(1240, 400);
+	leftPaddle = Factory::MakePaddle(40, 400);
+	ball = Factory::MakeBall(640 / 2,360 / 2);
 }
 
 
@@ -23,8 +23,6 @@ Setting * Setting::getInstance()
 void Setting::update(float deltaTime, StateManager * SM)
 {
 	aie::Input* input = aie::Input::getInstance();
-
-	SETAPP->app->getWindowHeight();
 
 	if (input->isKeyDown(aie::INPUT_KEY_UP))
 	{
@@ -53,9 +51,9 @@ void Setting::update(float deltaTime, StateManager * SM)
 
 	}
 
-	if (leftPaddle->posY + leftPaddle->tall / 2 > SETAPP->app->getWindowHeight())
+	if (leftPaddle->posY + leftPaddle->tall / 2 > app->getWindowHeight())
 	{
-		leftPaddle->posY = SETAPP->app->getWindowHeight() - leftPaddle->tall / 2;
+		leftPaddle->posY = app->getWindowHeight() - leftPaddle->tall / 2;
 		//std::cout << leftPaddle->posY;
 
 	}
@@ -65,13 +63,13 @@ void Setting::update(float deltaTime, StateManager * SM)
 		rightPaddle->posY = rightPaddle->tall / 2;
 	}
 
-	if (rightPaddle->posY + rightPaddle->tall / 2 > SETAPP->app->getWindowHeight())
+	if (rightPaddle->posY + rightPaddle->tall / 2 > app->getWindowHeight())
 	{
-		rightPaddle->posY = SETAPP->app->getWindowHeight() - rightPaddle->tall / 2;
+		rightPaddle->posY = app->getWindowHeight() - rightPaddle->tall / 2;
 	}
 
 
-	if (ball->posY + ball->tall / 2 > SETAPP->app->getWindowHeight())
+	if (ball->posY + ball->tall / 2 > app->getWindowHeight())
 	{
 		ball->Yvelocity = ball->Yvelocity * -1;
 	}
@@ -93,10 +91,10 @@ void Setting::update(float deltaTime, StateManager * SM)
 
 	}
 
-	if (ball->posX > SETAPP->app->getWindowWidth() || ball->posX < 0)
+	if (ball->posX > app->getWindowWidth() || ball->posX < 0)
 	{
-		ball->posX = SETAPP->app->getWindowWidth() / 2;
-		ball->posY = SETAPP->app->getWindowHeight() / 2;
+		ball->posX = app->getWindowWidth() / 2;
+		ball->posY = app->getWindowHeight() / 2;
 		ball->Yvelocity = 200;
 		ball->Xvelocity = 200;
 	}
@@ -105,11 +103,11 @@ void Setting::update(float deltaTime, StateManager * SM)
 	ball->posY += ball->Yvelocity * deltaTime;
 
 
-	if (input->wasKeyPressed(aie::INPUT_KEY_P))
-	{
-		SM->popState();
-		SM->pushState(StateManagement::PAUSE);
-	}
+	//if (input->wasKeyPressed(aie::INPUT_KEY_P))
+	//{
+	//	SM->popState();
+	//	SM->pushState(StateManagement::PAUSE);
+	//}
 }
 
 void Setting::render()

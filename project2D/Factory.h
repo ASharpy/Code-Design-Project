@@ -2,15 +2,15 @@
 #include "Object.h"
 #include "Ball.h"
 #include "Paddle.h"
-#define FACTORY Factory::getInstance()
+//#define FACTORY Factory::getInstance()
 
 class Factory
 {
 public:
-	static Factory * getInstance();
+	//static Factory * getInstance();
 
-	Object* MakeBall(float PosX, float PosY);
-	Object* MakePaddle(float PosX, float PosY);
+	static Object* MakeBall(float PosX, float PosY);
+	static Object* MakePaddle(float PosX, float PosY);
 	Factory();
 	
 	~Factory();

@@ -5,15 +5,15 @@
 #include "StateManager.h"
 
 
-class aieProject2D1App : public aie::Application {
+class Application2D : public aie::Application {
 public:
 
 
-	aieProject2D1App();
-	virtual ~aieProject2D1App();
+	Application2D();
+	virtual ~Application2D();
 
-	 bool startup();
-	 void shutdown();
+	virtual bool startup();
+	virtual void shutdown();
 
 	/*Updates the tanks local and global matricies 
       no returns 

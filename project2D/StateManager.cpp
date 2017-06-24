@@ -36,7 +36,7 @@ void StateManager::registerState(int ID, State * state)
 {
 	commands command;
 	command.id = ID;
-	command.command = commandTypes::PUSH;
+	command.command = commandTypes::REGISTER;
 	command.commandState = state;
 	commandList.pushBack(command);
 }

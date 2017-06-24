@@ -2,13 +2,13 @@
 #include "GameState.h"
 
 
-class aieProject2D1App;
+class Application2D;
 #define SETAPP Setting::getInstance()
 
 class Setting
 {
 public:
-	aieProject2D1App *app;
+	Application2D *app;
 	static Setting* getInstance();
 
 	void update(float deltaTime, StateManager * SM);

@@ -67,4 +67,13 @@ void LoadState::updateLoadText(float deltaTime)
 
 void LoadState::updateStateTimer(float deltaTime)
 {
+	switchStateTimer += deltaTime;
+	//change back to 5
+	if (switchStateTimer < 1)
+	{
+		return;
+	}
+
+	app->getStateManager()->popState();
+	app->getStateManager()->pushState(MENU);
 }

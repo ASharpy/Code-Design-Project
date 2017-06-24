@@ -3,7 +3,7 @@
 int main() {
 
 	// allocation
-	auto app = new aieProject2D1App();
+	auto app = new Application2D();
 
 	// initialise and loop
 	app->run("AIE", 1280, 720, false);
