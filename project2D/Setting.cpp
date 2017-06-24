@@ -10,7 +10,6 @@ Setting::Setting()
 	rightPaddle = Factory::MakePaddle(1240, 400);
 	leftPaddle = Factory::MakePaddle(40, 400);
 	ball = Factory::MakeBall(640 / 2, 360 / 2);
-
 }
 
 
@@ -24,7 +23,6 @@ Setting * Setting::getInstance()
 void Setting::update(float deltaTime, StateManager * SM)
 {
 	
-
 
 	if (app->input->isKeyDown(aie::INPUT_KEY_UP))
 	{
@@ -56,7 +54,6 @@ void Setting::update(float deltaTime, StateManager * SM)
 	if (leftPaddle->posY + leftPaddle->tall / 2 > app->getWindowHeight())
 	{
 		leftPaddle->posY = app->getWindowHeight() - leftPaddle->tall / 2;
-		//std::cout << leftPaddle->posY;
 
 	}
 
@@ -127,6 +124,7 @@ Setting::~Setting()
 {
 	delete rightPaddle;
 	delete leftPaddle;
+	delete ball;
 }
 
 

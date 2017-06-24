@@ -82,6 +82,7 @@ void MenuState::render()
 
 MenuState::~MenuState()
 {
+	delete font;
 }
 
 

@@ -36,4 +36,5 @@ void PauseState::render()
 
 PauseState::~PauseState()
 {
+	delete font;
 }

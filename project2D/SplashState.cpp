@@ -19,6 +19,8 @@ SplashState::SplashState(Application2D * _app, StateManager * SM) : State(_app, 
 
 SplashState::~SplashState()
 {
+	delete font;
+	delete actionfont;
 }
 
 void SplashState::update(float deltaTime)

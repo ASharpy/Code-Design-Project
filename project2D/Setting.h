@@ -22,7 +22,6 @@ private:
 
 	bool checkCollision(int x, int y, int oWidth, int oHeight, int xTwo, int yTwo, int oTwoWidth, int oTwoHeight);
 
-
 	Object* leftPaddle;
 	Object* rightPaddle;
 	Object* ball;

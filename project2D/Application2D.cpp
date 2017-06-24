@@ -39,7 +39,7 @@ bool Application2D::startup() {
 void Application2D::shutdown()
 {
 	delete SM;
-
+	delete Renderer;
 }
 
 
