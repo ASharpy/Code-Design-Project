@@ -28,7 +28,6 @@ private:
 	int WhatsSelected;
 
 	int maxMenuOption;
-	void newGame();
 	aie::Input *input;
 };
 

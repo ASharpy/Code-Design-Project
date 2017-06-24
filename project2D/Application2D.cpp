@@ -27,8 +27,9 @@ bool Application2D::startup() {
 	SM = new StateManager();
 	
 	SM->registerState(GAME, new LoadState(this, SM));
-
-	SM->pushState(GAME);
+	//SM->registerState(LOADING, new LoadState(this, SM));
+	SM->registerState(MENU, new MenuState(this,SM));
+	SM->pushState(MENU);
 	return true;
 }
 
@@ -55,8 +56,8 @@ void Application2D::draw() {
 
 	Renderer->begin();
 
-	SETAPP->app->draw();
-
+	SM->RenderState();
+	
 	Renderer->end();
 	// begin drawing sprites
 	
