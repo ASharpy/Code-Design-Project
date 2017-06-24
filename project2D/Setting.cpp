@@ -105,11 +105,11 @@ void Setting::update(float deltaTime, StateManager * SM)
 	ball->posY += ball->Yvelocity * deltaTime;
 
 
-	//if (input->wasKeyPressed(aie::INPUT_KEY_P))
-	//{
-	//	SM->popState();
-	//	SM->pushState(StateManagement::PAUSE);
-	//}
+	if (app->input->wasKeyPressed(aie::INPUT_KEY_P))
+	{
+		SM->popState();
+		SM->pushState(StateManagement::PAUSE);
+	}
 }
 
 void Setting::render()

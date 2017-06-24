@@ -5,12 +5,11 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
     <Filter Include="State Machine">
       <UniqueIdentifier>{e8ae209a-6606-4975-9977-e2e1e67128d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object Creation">
+      <UniqueIdentifier>{3dee42c0-e365-48d1-af3a-bb7940f2c4f7}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -20,23 +19,8 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Object.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Setting.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Factory.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Ball.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Paddle.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GameState.cpp">
-      <Filter>State Machine</Filter>
     </ClCompile>
     <ClCompile Include="LoadState.cpp">
       <Filter>State Machine</Filter>
@@ -53,24 +37,30 @@
     <ClCompile Include="StateManager.cpp">
       <Filter>State Machine</Filter>
     </ClCompile>
+    <ClCompile Include="Ball.cpp">
+      <Filter>Object Creation</Filter>
+    </ClCompile>
+    <ClCompile Include="Factory.cpp">
+      <Filter>Object Creation</Filter>
+    </ClCompile>
+    <ClCompile Include="Object.cpp">
+      <Filter>Object Creation</Filter>
+    </ClCompile>
+    <ClCompile Include="Paddle.cpp">
+      <Filter>Object Creation</Filter>
+    </ClCompile>
+    <ClCompile Include="PauseState.cpp">
+      <Filter>State Machine</Filter>
+    </ClCompile>
+    <ClCompile Include="GameState.cpp">
+      <Filter>State Machine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application2D.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="Object.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="Setting.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Factory.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Ball.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Paddle.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="GameState.h">
@@ -92,6 +82,21 @@
       <Filter>State Machine</Filter>
     </ClInclude>
     <ClInclude Include="StateManager.h">
+      <Filter>State Machine</Filter>
+    </ClInclude>
+    <ClInclude Include="Ball.h">
+      <Filter>Object Creation</Filter>
+    </ClInclude>
+    <ClInclude Include="Factory.h">
+      <Filter>Object Creation</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>Object Creation</Filter>
+    </ClInclude>
+    <ClInclude Include="Paddle.h">
+      <Filter>Object Creation</Filter>
+    </ClInclude>
+    <ClInclude Include="PauseState.h">
       <Filter>State Machine</Filter>
     </ClInclude>
   </ItemGroup>

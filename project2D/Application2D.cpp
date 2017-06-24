@@ -8,6 +8,7 @@
 #include "MenuState.h"
 #include "Setting.h"
 #include "SplashState.h"
+#include "PauseState.h"
 
 using namespace StateManagement;
 Application2D::Application2D()
@@ -27,6 +28,7 @@ bool Application2D::startup() {
 	SM = new StateManager();
 	input = aie::Input::getInstance();
 	SM->registerState(SPLASH, new SplashState(this, SM));
+	SM->registerState(PAUSE, new PauseState(this, SM));
 	SM->registerState(GAME, new GameState(this, SM));
 	SM->registerState(LOADING, new LoadState(this, SM));
 	SM->registerState(MENU, new MenuState(this, SM));
