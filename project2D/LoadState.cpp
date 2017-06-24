@@ -10,7 +10,7 @@ using namespace StateManagement;
 
 LoadState::LoadState(Application2D *_app, StateManager *_SM) : State(_app, _SM)
 {
-	font = new aie::Font("./font/consolas.ttf", 16);
+	font = new aie::Font("./font/consolas.ttf", 50);
 	loadText = "Loading";
 	switchStateTimer = 0.0f;
 }
@@ -30,11 +30,11 @@ void LoadState::update(float deltaTime)
 
 void LoadState::render()
 {
-	char buffer[32];
+	//char buffer[32];
 	//sprintf_s(buffer, "%2.2f", switchStateTimer);
 
 	//SETAPP->app->Renderer->drawText(font, buffer, 10, 50);
-	SETAPP->app->Renderer->drawText(font, loadText, 10, 50);
+	SETAPP->app->Renderer->drawText(font, loadText,540 ,360, 50);
 }
 
 void LoadState::updateLoadText(float deltaTime)
