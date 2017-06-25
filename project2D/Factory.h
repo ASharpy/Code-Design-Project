@@ -2,14 +2,17 @@
 #include "Object.h"
 #include "Ball.h"
 #include "Paddle.h"
-//#define FACTORY Factory::getInstance()
 
 class Factory
 {
 public:
-	//static Factory * getInstance();
 
+	/*
+	Creates a new ball type object
+	@param PosX the X position of the bass
+	*/
 	static Object* MakeBall(float PosX, float PosY);
+	
 	static Object* MakePaddle(float PosX, float PosY);
 	Factory();
 

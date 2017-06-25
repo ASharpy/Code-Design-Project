@@ -147,10 +147,18 @@ public:
 			return *this;
 		}
 
-		
+		/*
+		* operator overloader for pointing to and object 
+		returns object
+		*/
+		T &operator*() { return ptr->obj; };
 
 	};
 
+	/*
+	Iterator end function that gets the end of the list
+	returns nullptr
+	*/
 	Iterator end()
 	{
 		Iterator temp;
@@ -158,6 +166,10 @@ public:
 		return temp;
 	};
 
+	/*
+	Iterator begin function that gets the beginning of the list
+	returns the first node
+	*/
 	Iterator begin()
 	{
 		Iterator temp;
@@ -165,18 +177,66 @@ public:
 		return temp;
 	};
 
+	/*
+	get size function gets how many elements in the list 
+	returns nullptr
+	*/
 	float getSize() { return m_eleNum; };
 
 	List() {};
 	~List() {};
 
+	/*
+	puts an elemement in the start of the list	
+	@param value the object being put into the list
+	no returns
+	*/
 	void pushFront(const T  value);
+	
+	/*
+	puts an elemement in the back of the list
+	@param value the object being put into the list
+	no returns
+	*/
 	void pushBack(const T  value);
+	
+	/*
+	puts an elemement in the start of the list
+	@param value the object being put into the list 
+	@param element where in the list to put the object
+	no returns
+	*/
 	void insert(int element, const T & value);
+	
+	/*
+	deletes the first element in the list
+	no returns
+	*/
 	void popFront();
+
+	/*
+	deletes the last element in the list
+	no returns
+	*/
 	void popBack();
+
+	/*
+	deletes the list
+	no returns
+	*/
 	void deleteList();
+	
+	/*
+	deletes a specific position in the list
+	@param position what position in the list you want to delete
+	no returns
+	*/
 	void deletePosition(float position);
+
+	/*
+	gets the last element in the list
+	returns the last object in the list
+	*/
 	T& last();
 };
 

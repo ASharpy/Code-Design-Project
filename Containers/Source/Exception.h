@@ -5,12 +5,12 @@
 /**
 * Error handling macros.
 * Usage example:
-*	eASSERT(someValue < 0);
-*	if (!fileHandle) eTHROW("Could not open file.");
+*	exceptASSERT(someValue < 0);
+*	if (!fileHandle)  exceptTHROW("Could not open file.");
 * Catch example:
 *	try
 *	{
-*		//Some code that may throw errors using eTHROW and eASSERT goes here...
+*		//Some code that may throw errors using exceptTHROW and exceptASSERT goes here...
 *	}
 *	catch (const std::exception &e)
 *	{
@@ -21,7 +21,7 @@
 *	    std::cerr << "Unspecified error." << std::endl;
 *	}
 * Based on concepts by Jeff Cotter - Academy of Interactive Entertainment - 2017
-* @author Ashley Flynn - Academy of Interactive Entertainment - 2017
+* thanks to Ashley Flynn - Academy of Interactive Entertainment - 2017
 */
 
 #define exceptTHROW( message ) do { \

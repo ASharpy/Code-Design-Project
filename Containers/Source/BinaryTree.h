@@ -38,7 +38,13 @@ private:
 	int leafNum = 0;
 	TreeNode * Root;
 
-	//bool isLeaf();
+	/*
+	inserts an object with a number unique to that object into a binary tree 
+	@param keynum the number unique to the object
+	@param valuenum the object 
+	@param leaf treeNode 
+	no returns
+	*/
 	void InsertTree(T keyNum, U valueNum, TreeNode *leaf)
 	{
 		if (keyNum < leaf->key)
@@ -80,6 +86,12 @@ private:
 
 	}
 
+	/*
+	inserts an object with a number unique to that object into a binary tree
+	@param keynum the number unique to the object
+	@param leaf treeNode
+	returns the object attached to keyNum
+	*/
 	U SearchTree(T keyNum, TreeNode *leaf)
 	{
 		if (leaf != nullptr)
@@ -109,6 +121,11 @@ private:
 
 	}
 
+	/*
+	Deletes tree
+	@param leaf treeNode
+	no returns
+	*/
 	void DestroyTree(TreeNode *leaf)
 	{
 		if (getLeafNum() < 0 )
@@ -128,6 +145,10 @@ private:
 
 public:
 
+	/*
+	gets how many elements in the tree
+	returns the number of elements in the tree
+	*/
 	int	getLeafNum()
 	{
 		return leafNum;
@@ -138,6 +159,12 @@ public:
 		Root = nullptr;
 	}
 
+	/*
+	public function for inserting into the tree
+	@param keyNum the number unique to the object 
+	@param valueNum object being inserted into the tree
+	no returns
+	*/
 	void insert(T KeyNum, U valueNum)
 
 	{
@@ -164,6 +191,11 @@ public:
 		
 	};
 
+	/*
+	public function for searching the tree
+	@param keyNum the number unique to the object
+	returns object with the keynum attached to it
+	*/
 	U Search(T keyNum)
 	{
 		if (keyNum < 0 || keyNum > leafNum)
@@ -179,6 +211,11 @@ public:
 		DestroyTree(Root);
 	}
 
+	/*
+	[] operator overload for searching a key in the tree
+	@param keyNum the number unique to the object
+	returns object with the keynum attached to it
+	*/
 	U operator [] (T newKey)
 	{
 		if (newKey < 0 || newKey > leafNum)
