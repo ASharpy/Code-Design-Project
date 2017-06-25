@@ -34,46 +34,46 @@ void StateManager::RenderState()
 
 void StateManager::registerState(int ID, State * state)
 {
-	exceptASSERT(ID < 4 && ID > 0);
-	{
+	exceptASSERT(ID < 6 && ID >= 0);
+	
 		commands command;
 		command.id = ID;
 		command.command = commandTypes::REGISTER;
 		command.commandState = state;
 		commandList.pushBack(command);
-	}
+	
 }
 
 void StateManager::pushState(int ID)
 {
-	exceptASSERT(ID < 4 && ID > 0);
-	{
+	exceptASSERT(ID < 6 && ID >= 0);
+	
 		commands command;
 		command.id = ID;
 		command.command = commandTypes::PUSH;
 		command.commandState = nullptr;
 		commandList.pushBack(command);
-	}
+	
 }
 
 void StateManager::popState()
 {
-	exceptASSERT(commandList.getSize() > 0);
-	{
+	exceptASSERT(commandList.getSize() >= 0);
+	
 		commands command;
 		command.id = -1;
 		command.command = commandTypes::POP;
 		command.commandState = nullptr;
 		commandList.pushBack(command);
-	}
+	
 }
 
 State * StateManager::getTopState()
 {
 	exceptASSERT(activeStates.getSize() <= 0);
-	{
+	
 		return activeStates.last();
-	}
+	
 }
 
 void StateManager::doCommands()

@@ -37,7 +37,7 @@ private:
 	AABB collision to see if two rectangles are colliding 
 	returns true or false depending on whether two objects are colliding
 	*/
-	bool checkCollision(int x, int y, int oWidth, int oHeight, int xTwo, int yTwo, int oTwoWidth, int oTwoHeight);
+	bool checkCollision(float x, float y, float oWidth, float oHeight, float xTwo, float yTwo, float oTwoWidth, float oTwoHeight);
 
 	Object* leftPaddle;
 	Object* rightPaddle;
