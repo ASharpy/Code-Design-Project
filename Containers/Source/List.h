@@ -166,7 +166,7 @@ inline void List<T>::pushFront(const T value)
 {
 	if (m_eleNum < 0)
 	{
-		eTHROW("The number of elements in tree is a negative");
+		exceptTHROW("The number of elements in tree is a negative");
 	}
 
 	if (m_eleNum == 0)
@@ -196,7 +196,7 @@ inline void List<T>::pushBack(const T value)
 {
 	if (m_eleNum < 0)
 	{
-		eTHROW("The number of elements in tree is a negative");
+		exceptTHROW("The number of elements in tree is a negative");
 	}
 
 	if (m_eleNum == 0)
@@ -227,7 +227,7 @@ inline void List<T>::popFront()
 {
 	if (m_eleNum <= 0)
 	{
-		eTHROW("Tried to delete a node or list that didnt exist");
+		exceptTHROW("Tried to delete a node or list that didnt exist");
 	}
 
 	if (m_eleNum == 1)
@@ -254,6 +254,10 @@ inline void List<T>::popFront()
 template<class T>
 inline void List<T>::popBack()
 {
+	if (m_eleNum <= 0)
+	{
+		exceptTHROW("Tried to delete a node or list that didnt exist");
+	}
 
 	if (m_eleNum == 1)
 	{
@@ -280,7 +284,7 @@ inline void List<T>::insert(int element, const T & value)
 {
 	if (element < 0 || element > m_eleNum)
 	{
-		throw;
+		exceptTHROW("Trying to insert outside the boundries of the list");
 	}
 
 	if (element == 0)
@@ -317,6 +321,10 @@ inline void List<T>::insert(int element, const T & value)
 template<class T>
 inline void List<T>::deleteList()
 {
+	if (m_eleNum < 0)
+	{
+		exceptTHROW("Trying to delete a list that doesnt exist");
+	}
 	int listDel = 0;
 	ListNode * Start = m_first;
 
@@ -342,7 +350,7 @@ inline void List<T>::deletePosition(float position)
 
 	if (position < 0 || position > m_eleNum)
 	{
-		throw;
+		exceptTHROW("Trying to delete outside the boundries of the list");
 	}
 
 	if (position == 0)
@@ -375,6 +383,10 @@ inline void List<T>::deletePosition(float position)
 template<class T>
 inline T & List<T>::last()
 {
+	if (m_eleNum < 0)
+	{
+		exceptTHROW("Trying to get the last element of a list that doesnt exist");
+	}
 	return m_last->obj;
 }
 

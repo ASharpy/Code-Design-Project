@@ -34,45 +34,46 @@ void StateManager::RenderState()
 
 void StateManager::registerState(int ID, State * state)
 {
-	if (ID > 4)
+	exceptASSERT(ID < 4 && ID > 0);
 	{
-		eTHROW("checking");
+		commands command;
+		command.id = ID;
+		command.command = commandTypes::REGISTER;
+		command.commandState = state;
+		commandList.pushBack(command);
 	}
-	
-	commands command;
-	command.id = ID;
-	command.command = commandTypes::REGISTER;
-	command.commandState = state;
-	commandList.pushBack(command);
 }
 
 void StateManager::pushState(int ID)
 {
-	commands command;
-	command.id = ID;
-	command.command = commandTypes::PUSH;
-	command.commandState = nullptr;
-	commandList.pushBack(command);
+	exceptASSERT(ID < 4 && ID > 0);
+	{
+		commands command;
+		command.id = ID;
+		command.command = commandTypes::PUSH;
+		command.commandState = nullptr;
+		commandList.pushBack(command);
+	}
 }
 
 void StateManager::popState()
 {
-	commands command;
-	command.id = -1;
-	command.command = commandTypes::POP;
-	command.commandState = nullptr;
-	commandList.pushBack(command);
-
+	exceptASSERT(commandList.getSize() > 0);
+	{
+		commands command;
+		command.id = -1;
+		command.command = commandTypes::POP;
+		command.commandState = nullptr;
+		commandList.pushBack(command);
+	}
 }
 
 State * StateManager::getTopState()
 {
-	if (activeStates.getSize() > 0)
+	exceptASSERT(activeStates.getSize() <= 0);
 	{
 		return activeStates.last();
 	}
-
-	return nullptr;
 }
 
 void StateManager::doCommands()
@@ -94,7 +95,7 @@ void StateManager::doCommands()
 			break;
 
 			default:
-				eTHROW("Tried to acces a command type that does exist");
+				exceptTHROW("Tried to acces a command type that does exist");
 			//put error handling here for trying to access a command type that doesnt exist
 
 		}

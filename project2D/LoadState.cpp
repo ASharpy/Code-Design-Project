@@ -31,10 +31,6 @@ void LoadState::update(float deltaTime)
 
 void LoadState::render()
 {
-	//char buffer[32];
-	//sprintf_s(buffer, "%2.2f", switchStateTimer);
-
-	//SETAPP->app->Renderer->drawText(font, buffer, 10, 50);
 	SETAPP->app->Renderer->drawText(font, loadText,540 ,360, 50);
 }
 
@@ -44,7 +40,8 @@ void LoadState::updateLoadText(float deltaTime)
 	static int checkNum;
 	updateClock += deltaTime;
 
-
+	
+	
 	if (updateClock < delayTime) return;
 
 	switch (checkNum) {
@@ -61,7 +58,10 @@ void LoadState::updateLoadText(float deltaTime)
 		loadText = "Loading . . .";
 		checkNum = -1;
 		break;
+	default:
+		exceptTHROW("checkNum is either too high or too low");
 	}
+
 	checkNum++;
 	updateClock = 0;
 }

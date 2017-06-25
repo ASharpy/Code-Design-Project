@@ -24,7 +24,7 @@
 * @author Ashley Flynn - Academy of Interactive Entertainment - 2017
 */
 
-#define eTHROW( message ) do { \
+#define exceptTHROW( message ) do { \
 	std::ostringstream oss; \
     oss << message; \
 	/*Remove file path, so we end up with just the file name.*/ \
@@ -43,4 +43,4 @@
 	std::string eMessage = "\"" + oss.str() + "\" File: " + name + ". Line: " + std::to_string(__LINE__) + "."; \
     throw std::runtime_error(eMessage); } while(0)  
 
-#define eASSERT( condition ) do { if( !(condition) ) eTHROW( "Assertion Failure" ); } while(0)
+#define exceptASSERT( condition ) do { if( !(condition) ) exceptTHROW( "Assertion Failure" ); } while(0)

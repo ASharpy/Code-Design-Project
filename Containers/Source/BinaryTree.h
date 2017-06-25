@@ -1,4 +1,5 @@
 #pragma once
+#include "Exception.h"
 
 template<class T, class U>
 class BinaryTree
@@ -91,22 +92,29 @@ private:
 			{
 				return SearchTree(keyNum, leaf->left);
 			}
-			else
+			else if (keyNum < 0 || keyNum > leafNum)
+			{
+				exceptTHROW("Key doesn't exist");
+			}
+			else  
 			{
 				return SearchTree(keyNum, leaf->right);
 
 			}
+
+			
 		}
 
-		else
-		{
-			throw("couldn't Find key");
-		}
+		return NULL;
 
 	}
 
 	void DestroyTree(TreeNode *leaf)
 	{
+		if (getLeafNum() < 0 )
+		{
+			exceptTHROW("Destroying tree that doesn't exist");
+		}
 		if (leaf != nullptr)
 		{
 			DestroyTree(leaf->left);
@@ -116,7 +124,6 @@ private:
 			leafNum--;
 		}
 	}
-	//BinaryTree treeDeletion();
 
 
 public:
@@ -134,6 +141,7 @@ public:
 	void insert(T KeyNum, U valueNum)
 
 	{
+	
 		if (Root != nullptr)
 		{
 			InsertTree(KeyNum, valueNum, Root);
@@ -146,21 +154,37 @@ public:
 			Root->left = nullptr;
 			Root->right = nullptr;
 			leafNum++;
+
+			if (KeyNum < 0)
+			{
+				exceptTHROW("Trying to insert out of trees boundries");
+			}
 		}
+
+		
 	};
 
 	U Search(T keyNum)
 	{
+		if (keyNum < 0 || keyNum > leafNum)
+		{
+			exceptTHROW("Trying to search out of trees boundries");
+		}
 		return SearchTree(keyNum, Root);
 	}
 
 	void deleteTree()
 	{
+
 		DestroyTree(Root);
 	}
 
 	U operator [] (T newKey)
 	{
+		if (newKey < 0 || newKey > leafNum)
+		{
+			exceptTHROW("Trying to search out of trees boundries");
+		}
 		return SearchTree(newKey, Root);
 	}
 

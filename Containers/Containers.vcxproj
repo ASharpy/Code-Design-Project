@@ -78,6 +78,13 @@
     <OutDir>$(ProjectDir)\lib\</OutDir>
     <IntDir>$(ProjectDir)\build\$(Configuration)\</IntDir>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(ProjectDir)\lib\</OutDir>
+    <TargetName>$(ProjectName)_DEBUG</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(ProjectDir)\lib\</OutDir>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <PrecompiledHeader>
@@ -147,6 +154,9 @@
     <ClInclude Include="Source\BinaryTree.h" />
     <ClInclude Include="Source\Exception.h" />
     <ClInclude Include="Source\List.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\List.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
