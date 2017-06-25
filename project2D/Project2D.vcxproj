@@ -107,6 +107,7 @@
   <ItemGroup>
     <ClInclude Include="Application2D.h" />
     <ClInclude Include="Ball.h" />
+    <ClInclude Include="Exception.h" />
     <ClInclude Include="Factory.h" />
     <ClInclude Include="GameState.h" />
     <ClInclude Include="GameStateTypes.h" />

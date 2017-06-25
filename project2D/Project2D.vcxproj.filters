@@ -99,5 +99,8 @@
     <ClInclude Include="PauseState.h">
       <Filter>State Machine</Filter>
     </ClInclude>
+    <ClInclude Include="Exception.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

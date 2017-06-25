@@ -9,6 +9,7 @@
 #include "Setting.h"
 #include "SplashState.h"
 #include "PauseState.h"
+#include "Exception.h"
 
 using namespace StateManagement;
 Application2D::Application2D()
@@ -27,7 +28,8 @@ bool Application2D::startup() {
 	Renderer = new aie::Renderer2D();
 	SM = new StateManager();
 	input = aie::Input::getInstance();
-	SM->registerState(SPLASH, new SplashState(this, SM));
+
+	SM->registerState(5, new SplashState(this, SM));
 	SM->registerState(PAUSE, new PauseState(this, SM));
 	SM->registerState(GAME, new GameState(this, SM));
 	SM->registerState(LOADING, new LoadState(this, SM));

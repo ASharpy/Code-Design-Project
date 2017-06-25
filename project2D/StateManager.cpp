@@ -1,6 +1,6 @@
 #include "StateManager.h"
 #include "State.h"
-
+#include "Exception.h"
 
 
 
@@ -34,6 +34,11 @@ void StateManager::RenderState()
 
 void StateManager::registerState(int ID, State * state)
 {
+	if (ID > 4)
+	{
+		eTHROW("checking");
+	}
+	
 	commands command;
 	command.id = ID;
 	command.command = commandTypes::REGISTER;
@@ -88,7 +93,8 @@ void StateManager::doCommands()
 			doPushState(command.id);
 			break;
 
-			//default:
+			default:
+				eTHROW("Tried to acces a command type that does exist");
 			//put error handling here for trying to access a command type that doesnt exist
 
 		}
