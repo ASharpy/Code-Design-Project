@@ -15,8 +15,18 @@ class State
 public:
 
 
-
+	/*
+	pure virtual update function that each state must have because the states dervive from state
+	@param deltaTime bootstraps delta time
+	no returns
+	*/
 	virtual void update(float deltaTime) = 0;
+	
+	/*
+	pure virtual update function that each state must have because the states dervive from state
+	@param deltaTime bootstraps delta time
+	no returns
+	*/
 	virtual void render() = 0;
 
 	State(Application2D *_app, StateManager * _SM) : app(_app), SM(_SM) {};

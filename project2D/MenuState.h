@@ -15,7 +15,18 @@ class MenuState : public State
 public:
 
 	MenuState::MenuState(Application2D *_app, StateManager *_SM);
+
+	/*
+	checks each frame for input and acts accordingly
+	@param dt bootstraps delta time
+	no returns
+	*/
 	virtual void update(float dt);
+
+	/*
+	draws the text on the screen and gives it the colour
+	no returns
+	*/
 	virtual void render();
 
 	virtual ~MenuState();

@@ -96,7 +96,7 @@ void StateManager::doCommands()
 
 			default:
 				exceptTHROW("Tried to acces a command type that does exist");
-			//put error handling here for trying to access a command type that doesnt exist
+			
 
 		}
 	}
@@ -111,8 +111,6 @@ void StateManager::doRegisterStates(int ID, State * state)
 
 void StateManager::doPopState()
 {
-	//error handling if a list is being popped with 0 items (an assert for if link list getsize() is > 0)
-
 	activeStates.popBack();
 }
 

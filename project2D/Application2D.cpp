@@ -65,8 +65,6 @@ void Application2D::draw() {
 
 
 	Renderer->end();
-	// begin drawing sprites
 
-	// done drawing sprites
 
 }

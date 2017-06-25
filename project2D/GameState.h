@@ -15,7 +15,18 @@ class GameState : public State
 {
 public:
 
+
+	/*
+	call the setting classes update function which runs the game
+	@param deltaTime bootstraps delta time
+	no returns
+	*/
 	virtual void update(float deltaTime);
+	
+	/*
+	call the setting classes render which draws the paddle and ball
+	no returns
+	*/
 	virtual void render();
 
 	GameState(Application2D *_app, StateManager * _SM);

@@ -11,16 +11,29 @@ public:
 	Application2D();
 	virtual ~Application2D();
 
+	/*
+	creates and registers all the objects and states
+	returns true
+	*/
 	virtual bool startup();
-	virtual void shutdown();
 
-	/*Updates the tanks local and global matricies
+	/*
+	deletes the objects and states to stop memory leaks
 	no returns
 	*/
-	virtual void update(float deltaTime);
+	virtual void shutdown();
+
+
 	/*
-	draws all the tank and its parts to the screen
-	no return
+	calls the update function for the active state
+	no returns 
+	*/
+	virtual void update(float deltaTime);
+
+
+	/*
+	starts the game loop and checks whether it needs to end or not and calls the render function for the active states 
+	no returns
 	*/
 	virtual void draw();
 	aie::Input* input;

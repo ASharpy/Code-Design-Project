@@ -111,13 +111,9 @@ void Setting::update(float deltaTime, StateManager * SM)
 
 void Setting::render()
 {
-	//m_2dRenderer->begin();
-
-	// draw your stuff here!
 	leftPaddle->Draw();
 	rightPaddle->Draw();
 	ball->Draw();
-
 }
 
 Setting::~Setting()
@@ -130,18 +126,6 @@ Setting::~Setting()
 
 bool Setting::checkCollision(int x, int y, int oWidth, int oHeight, int xTwo, int yTwo, int oTwoWidth, int oTwoHeight)
 {
-	/*x = ball->posX;
-	y = ball->posY;
-
-	oWidth = ball->wide;
-	oHeight = ball->tall;
-
-	xTwo = leftPaddle->posX;
-	yTwo = leftPaddle->posY;
-
-	oTwoWidth = leftPaddle->wide;
-	oTwoHeight = leftPaddle->tall;*/
-
 
 	int x1Min = x - oWidth / 2;
 	int x1Max = x + oWidth / 2;

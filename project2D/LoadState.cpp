@@ -68,9 +68,8 @@ void LoadState::updateLoadText(float deltaTime)
 
 void LoadState::updateStateTimer(float deltaTime)
 {
-	
 	switchStateTimer += deltaTime;
-	//change back to 5
+
 	if (switchStateTimer < 3)
 	{
 		return;
