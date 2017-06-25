@@ -110,25 +110,44 @@ public:
 			}
 		};
 
+		/*
+		!= operator overloader for checking whether two iterators dont equal
+		returns false
+		*/
 		bool operator!=(const Iterator & other) { return ptr != other.ptr; };
 
+		/*
+		== operator overloader for checking whether two iterators equal
+		returns true
+		*/
 		bool operator==(const Iterator & other) { return ptr == other.ptr; };
 
+		/*
+		= operator overloader for asigning two iterators
+		returns iterator
+		*/
 		Iterator &operator=(const Iterator & other) { ptr = other.ptr; return *this; };
 
+		/*
+		-> operator overloader for pointing to objects
+		returns object pointed to
+		*/
 		T *operator ->()
 		{
 			return &ptr->obj;
 		};
 
+		/*
+		-> operator overloader for pointing to objects (const correct version)
+		returns object pointed to
+		*/
 		const Iterator *operator ->()const
 		{
 
 			return *this;
 		}
 
-
-		T &operator*() { return ptr->obj; };
+		
 
 	};
 
