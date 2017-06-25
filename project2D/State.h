@@ -29,6 +29,12 @@ public:
 	*/
 	virtual void render() = 0;
 
+	/*
+	pure virtual constructor that each state must have because the states dervive from state
+	@param _app application2D
+	@param _SM stateManager
+	no returns
+	*/
 	State(Application2D *_app, StateManager * _SM) : app(_app), SM(_SM) {};
 	virtual ~State() = default;
 
