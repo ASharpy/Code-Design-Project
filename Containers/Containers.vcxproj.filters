@@ -21,8 +21,5 @@
     <ClInclude Include="Source\List.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Stack.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>
