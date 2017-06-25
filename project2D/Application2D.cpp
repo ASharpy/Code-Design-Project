@@ -29,7 +29,7 @@ bool Application2D::startup() {
 	SM = new StateManager();
 	input = aie::Input::getInstance();
 
-	SM->registerState(5, new SplashState(this, SM));
+	SM->registerState(SPLASH, new SplashState(this, SM));
 	SM->registerState(PAUSE, new PauseState(this, SM));
 	SM->registerState(GAME, new GameState(this, SM));
 	SM->registerState(LOADING, new LoadState(this, SM));

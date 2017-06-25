@@ -1,5 +1,7 @@
 #pragma once
 #include <iostream>
+#include "Exception.h"
+
 template<class T>
 class List
 {
@@ -162,6 +164,10 @@ public:
 template<class T>
 inline void List<T>::pushFront(const T value)
 {
+	if (m_eleNum < 0)
+	{
+		eTHROW("The number of elements in tree is a negative");
+	}
 
 	if (m_eleNum == 0)
 	{
@@ -188,6 +194,11 @@ inline void List<T>::pushFront(const T value)
 template<class T>
 inline void List<T>::pushBack(const T value)
 {
+	if (m_eleNum < 0)
+	{
+		eTHROW("The number of elements in tree is a negative");
+	}
+
 	if (m_eleNum == 0)
 	{
 		m_last = new ListNode(value);
@@ -214,6 +225,10 @@ inline void List<T>::pushBack(const T value)
 template<class T>
 inline void List<T>::popFront()
 {
+	if (m_eleNum <= 0)
+	{
+		eTHROW("Tried to delete a node or list that didnt exist");
+	}
 
 	if (m_eleNum == 1)
 	{

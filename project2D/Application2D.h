@@ -4,7 +4,6 @@
 #include "Player.h"
 #include "StateManager.h"
 
-
 class Application2D : public aie::Application {
 public:
 

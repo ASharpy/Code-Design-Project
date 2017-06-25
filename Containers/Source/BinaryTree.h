@@ -6,7 +6,6 @@ class BinaryTree
 
 
 private:
-
 	class TreeNode
 	{
 	public:

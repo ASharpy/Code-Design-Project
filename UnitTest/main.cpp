@@ -408,18 +408,25 @@ bool  unitTest()
 
 int main()
 {
-	int foo;
-	foo = -1;
-
-	if (unitTest())
+	try
 	{
-		std::cout << " All tests passed successfully" << std::endl;
+		if (unitTest())
+		{
+			std::cout << " All tests passed successfully" << std::endl;
+		}
+		else
+		{
+			std::cout << "Test Failed" << std::endl;
+		}
 	}
-	else 
+	catch (const std::exception &e)
 	{
-		std::cout << "Test Failed" << std::endl;
+		std::cerr << "Error: " << e.what() << std::endl;
+	}
+	catch (...)
+	{
+		std::cerr << "Unspecified error." << std::endl;
 	}
 	system("pause");
 	return 0;
-
 }
