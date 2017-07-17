@@ -8,31 +8,27 @@ public:
 	T obj;
 	T topObj;
 	int top = -1;
-	
-	T* myArray;
+
+	T myArray[10];
 	//Stack()
 	//{ 
 	//}
 
-	stack()
-	{
-
-	}
 	~Stack() {};
 
 	void push(T value)
 	{
 		top++;
-			if (top<MAX)
-			{
-				myArray[top] = value;
-			}
-			else
-			{
-				throw("outside of stack bounds");
-			}
+		if (top<MAX)
+		{
+			myArray[top] = value;
+		}
+		else
+		{
+			throw("outside of stack bounds");
+		}
 	}
-	
+
 
 	T pop()
 	{

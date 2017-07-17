@@ -1,36 +1,47 @@
 #pragma once
-#include "Object.h"
-#include "List.h"
+#include <Application.h>
+#include "Renderer2D.h"
+#include "Player.h"
 #include "StateManager.h"
 
-class aieProject2D1App : public aie::Application {
+class Application2D : public aie::Application {
 public:
 
 
-	Object * leftPaddle;
-	Object* rightPaddle;
-	Object* ball;
-	aieProject2D1App();
-	virtual ~aieProject2D1App();
+	Application2D();
+	virtual ~Application2D();
 
+	/*
+	creates and registers all the objects and states
+	returns true
+	*/
 	virtual bool startup();
+
+	/*
+	deletes the objects and states to stop memory leaks
+	no returns
+	*/
 	virtual void shutdown();
 
-	/*Updates the tanks local and global matricies 
-      no returns 
+
+	/*
+	calls the update function for the active state
+	no returns 
 	*/
 	virtual void update(float deltaTime);
-	bool checkCollision(int x, int y, int oWidth, int oHeight, int xTwo, int yTwo, int oTwoWidth, int oTwoHeight);
+
+
 	/*
-	draws all the tank and its parts to the screen 
-	no return
+	starts the game loop and checks whether it needs to end or not and calls the render function for the active states 
+	no returns
 	*/
 	virtual void draw();
-
-	StateManager *getStateManager() { return gsm; };
+	aie::Input* input;
+	StateManager *getStateManager() { return SM; };
+	aie::Renderer2D *Renderer;
 
 protected:
 
-	StateManager *gsm;
-	aie::Renderer2D* m_2dRenderer;
+	StateManager *SM;
+
 };

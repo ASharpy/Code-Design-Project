@@ -1,5 +1,7 @@
 #include "Object.h"
-#include <iostream>
+#include "Setting.h"
+#include "Application2D.h"
+
 
 
 Object::Object()
@@ -20,5 +22,5 @@ Object::~Object()
 
 void Object::Draw()
 {
-	m_2dRenderer->drawBox(posX, posY, wide, tall);
+	SETAPP->app->Renderer->drawBox(posX, posY, wide, tall);
 }

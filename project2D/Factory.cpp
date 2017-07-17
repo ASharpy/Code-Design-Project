@@ -1,5 +1,4 @@
 #include "Factory.h"
-#include "Renderer2D.h"
 
 
 
@@ -14,18 +13,13 @@ Factory::~Factory()
 {
 }
 
-Factory * Factory::getInstance()
+
+Object *Factory::MakeBall(float PosX, float PosY)
 {
-	static Factory factory;
-	return &factory;
+	return new Ball(PosX, PosY);
 }
 
-Object *Factory::MakeBall(aie::Renderer2D* render,float PosX, float PosY)
+Object * Factory::MakePaddle(float PosX, float PosY)
 {
-		return new Ball(render, PosX, PosY);
-}
-
-Object * Factory::MakePaddle(aie::Renderer2D * render, float PosX, float PosY)
-{
-	return new Paddle(render, PosX, PosY);
+	return new Paddle(PosX, PosY);
 }

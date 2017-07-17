@@ -1,16 +1,16 @@
 #pragma once
+#include "Exception.h"
 
-template<class T,class U>
+template<class T, class U>
 class BinaryTree
 {
 
 
 private:
-
 	class TreeNode
 	{
 	public:
-		
+
 
 		T key;
 		U value;
@@ -33,12 +33,18 @@ private:
 		~TreeNode() { value = 0; key = 0; };
 
 	};
-	
+
 	//Private Functions 
 	int leafNum = 0;
 	TreeNode * Root;
 
-	//bool isLeaf();
+	/*
+	inserts an object with a number unique to that object into a binary tree 
+	@param keynum the number unique to the object
+	@param valuenum the object 
+	@param leaf treeNode 
+	no returns
+	*/
 	void InsertTree(T keyNum, U valueNum, TreeNode *leaf)
 	{
 		if (keyNum < leaf->key)
@@ -80,6 +86,12 @@ private:
 
 	}
 
+	/*
+	inserts an object with a number unique to that object into a binary tree
+	@param keynum the number unique to the object
+	@param leaf treeNode
+	returns the object attached to keyNum
+	*/
 	U SearchTree(T keyNum, TreeNode *leaf)
 	{
 		if (leaf != nullptr)
@@ -90,24 +102,36 @@ private:
 			}
 			else if (keyNum < leaf->key)
 			{
-				return SearchTree(keyNum , leaf->left);
+				return SearchTree(keyNum, leaf->left);
 			}
-			else
+			else if (keyNum < 0 || keyNum > leafNum)
+			{
+				exceptTHROW("Key doesn't exist");
+			}
+			else  
 			{
 				return SearchTree(keyNum, leaf->right);
 
 			}
+
+			
 		}
 
-		else
-		{
-			throw("couldn't Find key");
-		}
+		return NULL;
 
 	}
-	
+
+	/*
+	Deletes tree
+	@param leaf treeNode
+	no returns
+	*/
 	void DestroyTree(TreeNode *leaf)
 	{
+		if (getLeafNum() < 0 )
+		{
+			exceptTHROW("Destroying tree that doesn't exist");
+		}
 		if (leaf != nullptr)
 		{
 			DestroyTree(leaf->left);
@@ -117,11 +141,14 @@ private:
 			leafNum--;
 		}
 	}
-	//BinaryTree treeDeletion();
 
 
 public:
 
+	/*
+	gets how many elements in the tree
+	returns the number of elements in the tree
+	*/
 	int	getLeafNum()
 	{
 		return leafNum;
@@ -131,10 +158,17 @@ public:
 	{
 		Root = nullptr;
 	}
-	
+
+	/*
+	public function for inserting into the tree
+	@param keyNum the number unique to the object 
+	@param valueNum object being inserted into the tree
+	no returns
+	*/
 	void insert(T KeyNum, U valueNum)
-	
+
 	{
+	
 		if (Root != nullptr)
 		{
 			InsertTree(KeyNum, valueNum, Root);
@@ -147,17 +181,49 @@ public:
 			Root->left = nullptr;
 			Root->right = nullptr;
 			leafNum++;
+
+			if (KeyNum < 0)
+			{
+				exceptTHROW("Trying to insert out of trees boundries");
+			}
 		}
+
+		
 	};
 
+	/*
+	public function for searching the tree
+	@param keyNum the number unique to the object
+	returns object with the keynum attached to it
+	*/
 	U Search(T keyNum)
 	{
+		if (keyNum < 0 || keyNum > leafNum)
+		{
+			exceptTHROW("Trying to search out of trees boundries");
+		}
 		return SearchTree(keyNum, Root);
 	}
 
 	void deleteTree()
 	{
+
 		DestroyTree(Root);
 	}
+
+	/*
+	[] operator overload for searching a key in the tree
+	@param keyNum the number unique to the object
+	returns object with the keynum attached to it
+	*/
+	U operator [] (T newKey)
+	{
+		if (newKey < 0 || newKey > leafNum)
+		{
+			exceptTHROW("Trying to search out of trees boundries");
+		}
+		return SearchTree(newKey, Root);
+	}
+
 };
 

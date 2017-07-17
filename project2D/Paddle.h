@@ -4,8 +4,9 @@
 class Paddle : public Object
 {
 public:
-	
-	Paddle(aie::Renderer2D* render, float PosX, float PosY);
+
+	//Paddle constructor giving the paddle object values
+	Paddle(float PosX, float PosY);
 	~Paddle();
 };
 

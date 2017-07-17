@@ -281,6 +281,38 @@ bool  unitTest()
 	}
 
 
+
+/*************************************************************************************
+**************************************************************************************
+				Getting the last object in the list Test
+**************************************************************************************
+**************************************************************************************/
+
+
+	List<int> L9;
+	L9.pushBack(1);
+	L9.pushBack(2);
+	L9.pushBack(3);
+	L9.pushBack(4);
+	L9.pushBack(5);
+
+	int last = L9.last();
+
+	if (last != 5)
+	{
+		std::cout << "didnt get last item Properly" << std::endl;
+		return false;
+	}
+
+	if (L9.getSize() != 5)
+	{
+		std::cout << "Size of list for getting last object is not correct" << std::endl;;
+		return false;
+	}
+
+
+
+
 /*************************************************************************************
 **************************************************************************************
 					Insert Key and Value into Binary Tree 
@@ -341,36 +373,60 @@ bool  unitTest()
 		return false;
 	}
 
-	/*
-	Insert 
-	Delete 
-	search 
-	*/
+
+	
 
 
-	Stack<int> stack;
-	stack.push(3);
-	stack.push(4);
-	stack.push(6);
-	stack.push(8);
+/*************************************************************************************
+**************************************************************************************
+				[] operator overloader test for binary tree
+**************************************************************************************
+**************************************************************************************/
+
+	T.insert(1, 1);
+	T.insert(2, 2);
+	T.insert(3, 3);
+	T.insert(4, 4);
+	T.insert(5, 5);
+
+
+	if (T[5] != 5)
+	{
+		std::cout << " operator overloader didnt work" << std::endl;
+		return false;
+	}
+
+	if (T.getLeafNum() != 5)
+	{
+		std::cout << "Wrong Binary Tree size for [] overload " << std::endl;
+		return false;
+	}
+
 
 	return true;
 }
 
 int main()
 {
-	int foo;
-	foo = -1;
-
-	if (unitTest())
+	try
 	{
-		std::cout << " All tests passed successfully" << std::endl;
+		if (unitTest())
+		{
+			std::cout << " All tests passed successfully" << std::endl;
+		}
+		else
+		{
+			std::cout << "Test Failed" << std::endl;
+		}
 	}
-	else 
+	catch (const std::exception &e)
 	{
-		std::cout << "Test Failed" << std::endl;
+		std::cerr << "Error: " << e.what() << std::endl;
+	}
+	catch (...)
+	{
+		std::cerr << "Unspecified error." << std::endl;
 	}
 	system("pause");
 	return 0;
-
 }
